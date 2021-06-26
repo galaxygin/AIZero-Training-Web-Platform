@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import '../styles/globals.css'
 import { ThemeProvider, CssBaseline } from '@material-ui/core';
-import theme from '../styles/theme';
+import theme from '../public/assets/styles/theme';
 
 function MyApp(props) {
   const { Component, pageProps } = props

@@ -1,6 +1,6 @@
 import React from 'react'
-import { useStyles } from '../../public/assets/styles/styles'
-import { List, ListItem, Link, ListItemText, Drawer, Divider } from '@material-ui/core'
+import { useStyles } from '../../public/assets/styles/styles.web'
+import { List, ListItem, Link, ListItemText, Drawer, Divider, Toolbar } from '@material-ui/core'
 
 const menu = [{ "title": "Get started", "uri": "GetStarted" },
 { "title": "Create a new project", "uri": "CreateProject" },
@@ -22,8 +22,9 @@ const menu = [{ "title": "Get started", "uri": "GetStarted" },
 { "title": "UICollectionView", "uri": "UICollectionView" },
 { "title": "Tab Bar Controller", "uri": "TabBarController" }]
 
-export default function IOSDrawer() {
+export default function WebDrawer() {
     const styles = useStyles()
+
     return (
         <Drawer
             className={styles.drawer}
@@ -34,17 +35,22 @@ export default function IOSDrawer() {
             anchor="left"
             open
         >
-            <div className={styles.toolbar} >
-                <ListItem>
-                    <ListItemText primary={"iOS ©︎ Aizero 2020"} />
-                </ListItem>
-            </div>
+            <Toolbar />
+            <ListItem>
+                <ListItemText primary={"©︎ AIZero Inc. 2021"} className={styles.textColor} />
+            </ListItem>
+            <Divider />
+            <ListItem>
+                <Link href={"/"} color="inherit">
+                    <ListItemText primary={"Home"} className={styles.textColor} />
+                </Link>
+            </ListItem>
             <Divider />
             <List>
                 {menu.map((item) => (
                     <ListItem key={item.title} >
-                        <Link href={"/ios/" + item.uri} color="inherit">
-                            <ListItemText primary={item.title} />
+                        <Link href={"/web/" + item.uri} color="inherit">
+                            <ListItemText primary={item.title} className={styles.textColor} />
                         </Link>
                     </ListItem>
                 ))}
