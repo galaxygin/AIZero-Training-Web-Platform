@@ -3,15 +3,15 @@ import { Typography } from '@material-ui/core'
 import { useStyles } from '../../public/assets/styles/styles.web'
 import PageBase from '../PageBase'
 
-export default function WebGetStarted() {
+export default function SetUpEnvironment() {
     const style = useStyles()
 
     function renderContent() {
         return (
             <div>
-                <Typography className={style.textColor} variant="h3" paragraph >Get Started</Typography>
+                <Typography className={style.textColor} variant="h3" paragraph >Set up environment</Typography>
                 <Typography className={style.textColor} paragraph >
-                    We will use following frameworks and softwares to develop a website:
+                    We will install and setting up following frameworks and softwares:
                 </Typography>
                 <Typography className={style.textColor} paragraph>
                     ・React: One of the major web framework<br />
@@ -24,7 +24,7 @@ export default function WebGetStarted() {
                 </Typography>
                 <Typography className={style.textColor} variant="h4" paragraph>Next</Typography>
                 <Typography className={style.textColor}>
-                    We will be setting up the environment on next step
+                    We will create a project on next step
                 </Typography>
             </div>
         )
