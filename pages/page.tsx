@@ -98,66 +98,66 @@ export default function Page({ content, header = <Header /> }) {
         }
     }
 
-    // if (getUser()) {
-    return (
-        <div className={drawerStyle.root}>
-            {header}
-            <AppBar position="fixed" className={drawerStyle.appBar}>
-                <Toolbar>
-                    <Link href="/" color="inherit">
-                        <Typography variant="h6" noWrap>AIZero Training</Typography>
-                    </Link>
-                    <Select
-                        style={{ margin: 16, color: "white" }}
-                        value={platform}
-                        onChange={handlePlatform}
-                    >
-                        <MenuItem value={"web"}>Web</MenuItem>
-                        <MenuItem value={"ios"}>iOS</MenuItem>
-                        <MenuItem value={"swiftui"}>SwiftUI</MenuItem>
-                        <MenuItem value={"android"}>Android</MenuItem>
-                    </Select>
-                    <div className={drawerStyle.grow} />
-                    <div className={drawerStyle.sectionDesktop}>
-                        <IconButton
-                            edge="end"
-                            aria-label="account of current user"
-                            aria-controls={menuId}
-                            aria-haspopup="true"
-                            onClick={handleProfileMenuOpen}
-                            color="inherit"
+    if (getUser()) {
+        return (
+            <div className={drawerStyle.root}>
+                {header}
+                <AppBar position="fixed" className={drawerStyle.appBar}>
+                    <Toolbar>
+                        <Link href="/" color="inherit">
+                            <Typography variant="h6" noWrap>AIZero Training</Typography>
+                        </Link>
+                        <Select
+                            style={{ margin: 16, color: "white" }}
+                            value={platform}
+                            onChange={handlePlatform}
                         >
-                            <AccountCircle />
-                        </IconButton>
-                    </div>
-                    <div className={drawerStyle.sectionMobile}>
-                        <IconButton
-                            aria-label="show more"
-                            aria-controls={mobileMenuId}
-                            aria-haspopup="true"
-                            onClick={handleMobileMenuOpen}
-                            color="inherit"
-                        >
-                            <AccountCircle />
-                        </IconButton>
-                    </div>
-                </Toolbar>
-            </AppBar>
-            {renderMenu}
-            {renderMobileMenu}
-            <nav className={drawerStyle.drawer}>
-                {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-                {changeDrawer(platform)}
-            </nav>
-            <main className={drawerStyle.content}>
-                <div className={drawerStyle.drawerHeader} />
-                {content}
-            </main>
-        </div>
-    )
-    // } else {
-    //     return <SignIn />
-    // }
+                            <MenuItem value={"web"}>Web</MenuItem>
+                            <MenuItem value={"ios"}>iOS</MenuItem>
+                            <MenuItem value={"swiftui"}>SwiftUI</MenuItem>
+                            <MenuItem value={"android"}>Android</MenuItem>
+                        </Select>
+                        <div className={drawerStyle.grow} />
+                        <div className={drawerStyle.sectionDesktop}>
+                            <IconButton
+                                edge="end"
+                                aria-label="account of current user"
+                                aria-controls={menuId}
+                                aria-haspopup="true"
+                                onClick={handleProfileMenuOpen}
+                                color="inherit"
+                            >
+                                <AccountCircle />
+                            </IconButton>
+                        </div>
+                        <div className={drawerStyle.sectionMobile}>
+                            <IconButton
+                                aria-label="show more"
+                                aria-controls={mobileMenuId}
+                                aria-haspopup="true"
+                                onClick={handleMobileMenuOpen}
+                                color="inherit"
+                            >
+                                <AccountCircle />
+                            </IconButton>
+                        </div>
+                    </Toolbar>
+                </AppBar>
+                {renderMenu}
+                {renderMobileMenu}
+                <nav className={drawerStyle.drawer}>
+                    {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+                    {changeDrawer(platform)}
+                </nav>
+                <main className={drawerStyle.content}>
+                    <div className={drawerStyle.drawerHeader} />
+                    {content}
+                </main>
+            </div>
+        )
+    } else {
+        return <SignIn />
+    }
 }
 
 const drawerWidth = 240;
