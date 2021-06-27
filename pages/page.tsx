@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import { Link, Select, MenuItem, Theme } from '@material-ui/core';
+import { Link, Select, MenuItem, Theme, IconButton, Menu, AppBar, Toolbar, Typography } from '@material-ui/core';
+import { AccountCircle } from '@material-ui/icons';
 import { useRouter } from 'next/router';
 import { createStyles, makeStyles } from '@material-ui/styles';
 import Header from './Header';
@@ -11,7 +9,7 @@ import WebDrawer from './web/WebDrawer';
 import IOSDrawer from './ios/iOSDrawer'
 import SwiftUIDrawer from './swiftui/SwiftUIDrawer'
 import AndroidDrawer from './android/AndroidDrawer'
-import { getUser } from '../api/request/AuthRequest';
+import { getUser, signOut } from '../api/request/AuthRequest';
 
 export default function Page({ content, header = <Header /> }) {
     const drawerStyle = drawerStyles()
@@ -20,6 +18,9 @@ export default function Page({ content, header = <Header /> }) {
 
     const [anchorEl, setAnchorEl] = useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
+
+    const isMenuOpen = Boolean(anchorEl);
+    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
     useEffect(() => {
 
@@ -48,6 +49,40 @@ export default function Page({ content, header = <Header /> }) {
         }
     }
 
+    const menuId = 'primary-search-account-menu';
+    const renderMenu = (
+        <Menu
+            anchorEl={anchorEl}
+            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+            id={menuId}
+            keepMounted
+            transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+            open={isMenuOpen}
+            onClose={handleMenuClose}
+        >
+            <MenuItem onClick={() => signOut().then(() => {
+                window.location.href = "/"
+            })}>Log out</MenuItem>
+        </Menu>
+    );
+
+    const mobileMenuId = 'primary-search-account-menu-mobile';
+    const renderMobileMenu = (
+        <Menu
+            anchorEl={mobileMoreAnchorEl}
+            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+            id={mobileMenuId}
+            keepMounted
+            transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+            open={isMobileMenuOpen}
+            onClose={handleMobileMenuClose}
+        >
+            <MenuItem onClick={() => signOut().then(() => {
+                window.location.href = "/"
+            })}>Log out</MenuItem>
+        </Menu>
+    );
+
     const changeDrawer = (platform: string) => {
         switch (platform) {
             case "web":
@@ -63,40 +98,66 @@ export default function Page({ content, header = <Header /> }) {
         }
     }
 
-    if (getUser()) {
-        return (
-            <div className={drawerStyle.root}>
-                {header}
-                <AppBar position="fixed" className={drawerStyle.appBar}>
-                    <Toolbar>
-                        <Link href="/" color="inherit">
-                            <Typography variant="h6" noWrap>AIZero Training</Typography>
-                        </Link>
-                        <Select
-                            style={{ margin: 16, color: "white" }}
-                            value={platform}
-                            onChange={handlePlatform}
+    // if (getUser()) {
+    return (
+        <div className={drawerStyle.root}>
+            {header}
+            <AppBar position="fixed" className={drawerStyle.appBar}>
+                <Toolbar>
+                    <Link href="/" color="inherit">
+                        <Typography variant="h6" noWrap>AIZero Training</Typography>
+                    </Link>
+                    <Select
+                        style={{ margin: 16, color: "white" }}
+                        value={platform}
+                        onChange={handlePlatform}
+                    >
+                        <MenuItem value={"web"}>Web</MenuItem>
+                        <MenuItem value={"ios"}>iOS</MenuItem>
+                        <MenuItem value={"swiftui"}>SwiftUI</MenuItem>
+                        <MenuItem value={"android"}>Android</MenuItem>
+                    </Select>
+                    <div className={drawerStyle.grow} />
+                    <div className={drawerStyle.sectionDesktop}>
+                        <IconButton
+                            edge="end"
+                            aria-label="account of current user"
+                            aria-controls={menuId}
+                            aria-haspopup="true"
+                            onClick={handleProfileMenuOpen}
+                            color="inherit"
                         >
-                            <MenuItem value={"web"}>Web</MenuItem>
-                            <MenuItem value={"ios"}>iOS</MenuItem>
-                            <MenuItem value={"swiftui"}>SwiftUI</MenuItem>
-                            <MenuItem value={"android"}>Android</MenuItem>
-                        </Select>
-                    </Toolbar>
-                </AppBar>
-                <nav className={drawerStyle.drawer}>
-                    {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-                    {changeDrawer(platform)}
-                </nav>
-                <main className={drawerStyle.content}>
-                    <div className={drawerStyle.drawerHeader} />
-                    {content}
-                </main>
-            </div>
-        )
-    } else {
-        return <SignIn />
-    }
+                            <AccountCircle />
+                        </IconButton>
+                    </div>
+                    <div className={drawerStyle.sectionMobile}>
+                        <IconButton
+                            aria-label="show more"
+                            aria-controls={mobileMenuId}
+                            aria-haspopup="true"
+                            onClick={handleMobileMenuOpen}
+                            color="inherit"
+                        >
+                            <AccountCircle />
+                        </IconButton>
+                    </div>
+                </Toolbar>
+            </AppBar>
+            {renderMenu}
+            {renderMobileMenu}
+            <nav className={drawerStyle.drawer}>
+                {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+                {changeDrawer(platform)}
+            </nav>
+            <main className={drawerStyle.content}>
+                <div className={drawerStyle.drawerHeader} />
+                {content}
+            </main>
+        </div>
+    )
+    // } else {
+    //     return <SignIn />
+    // }
 }
 
 const drawerWidth = 240;
@@ -139,6 +200,21 @@ const drawerStyles = makeStyles((theme: Theme) =>
         content: {
             flexGrow: 1,
             padding: theme.spacing(3),
+        },
+        grow: {
+            flexGrow: 1,
+        },
+        sectionDesktop: {
+            display: 'none',
+            [theme.breakpoints.up('md')]: {
+                display: 'flex',
+            },
+        },
+        sectionMobile: {
+            display: 'flex',
+            [theme.breakpoints.up('md')]: {
+                display: 'none',
+            },
         },
     }),
 );
