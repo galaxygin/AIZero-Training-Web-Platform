@@ -17,29 +17,31 @@ export default function SwiftUIDrawer() {
             anchor="left"
             open
         >
-            <Toolbar />
-            <ListItem>
-                <ListItemText primary={"©︎ AIZero Inc. 2021"} className={styles.textColor} />
-            </ListItem>
-            <Divider />
-            <ListItem>
-                <Link href={"/"} color="inherit">
-                    <ListItemText primary={"Home"} className={styles.textColor} />
-                </Link>
-            </ListItem>
-            <Divider />
-            <ListItem>
-                <ListItemText primary={"Coming soon"} />
-            </ListItem>
-            {/* <List>
+            <div style={{ backgroundColor: "#454545", height: "100%" }}>
+                <Toolbar />
+                <ListItem>
+                    <ListItemText primary={"©︎ AIZero Inc. 2021"} className={styles.textColor} />
+                </ListItem>
+                <Divider />
+                <ListItem>
+                    <Link href={"/"} color="inherit">
+                        <ListItemText primary={"Home"} className={styles.textColor} />
+                    </Link>
+                </ListItem>
+                <Divider />
+                <ListItem>
+                    <ListItemText primary={"Coming soon"} className={styles.textColor} />
+                </ListItem>
+                {/* <List>
                 {menu.map((item) => (
                     <ListItem key={item.title} >
-                        <Link href={"/ios/" + item.uri} color="inherit">
+                        <Link href={"/swiftui/" + item.uri} color="inherit">
                             <ListItemText primary={item.title} />
                         </Link>
                     </ListItem>
                 ))}
             </List> */}
+            </div>
         </Drawer >
     )
 }

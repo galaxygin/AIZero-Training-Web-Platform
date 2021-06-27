@@ -35,26 +35,28 @@ export default function WebDrawer() {
             anchor="left"
             open
         >
-            <Toolbar />
-            <ListItem>
-                <ListItemText primary={"©︎ AIZero Inc. 2021"} className={styles.textColor} />
-            </ListItem>
-            <Divider />
-            <ListItem>
-                <Link href={"/"} color="inherit">
-                    <ListItemText primary={"Home"} className={styles.textColor} />
-                </Link>
-            </ListItem>
-            <Divider />
-            <List>
-                {menu.map((item) => (
-                    <ListItem key={item.title} >
-                        <Link href={"/web/" + item.uri} color="inherit">
-                            <ListItemText primary={item.title} className={styles.textColor} />
-                        </Link>
-                    </ListItem>
-                ))}
-            </List>
+            <div style={{ backgroundColor: "#454545" }}>
+                <Toolbar />
+                <ListItem>
+                    <ListItemText primary={"©︎ AIZero Inc. 2021"} className={styles.textColor} />
+                </ListItem>
+                <Divider />
+                <ListItem>
+                    <Link href={"/"} color="inherit">
+                        <ListItemText primary={"Home"} className={styles.textColor} />
+                    </Link>
+                </ListItem>
+                <Divider />
+                <List>
+                    {menu.map((item) => (
+                        <ListItem key={item.title} >
+                            <Link href={"/web/" + item.uri} color="inherit">
+                                <ListItemText primary={item.title} className={styles.textColor} />
+                            </Link>
+                        </ListItem>
+                    ))}
+                </List>
+            </div>
         </Drawer >
     )
 }
