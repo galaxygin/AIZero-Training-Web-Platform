@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStyles } from '../../public/assets/styles/styles.web'
 import { Typography } from '@material-ui/core'
-import initial from '../../public/assets/images/apple/transition_mode_initial.jpg'
+// import initial from '../../public/assets/images/apple/transition_mode_initial.jpg'
 import Page from '../page'
 
 export default function IOSScreenTransitionMode() {
@@ -58,7 +58,7 @@ export default function IOSScreenTransitionMode() {
                     ・Put 2 buttons for "Go back", "Dismiss"<br />
                     ・Control + drug {`&`} drop from 3 buttons to destination and connect each buttons.<br />
                     ・You can create class to do those actions programmatically<br />
-                    <img src={initial} width={"60%"} height={"40%"} alt="" />
+                    {/* <img src={initial} width={"60%"} height={"40%"} alt="" /> */}
                 </Typography>
             </div>
         )

@@ -1,8 +1,8 @@
 import React from 'react'
 import { useStyles } from '../../public/assets/styles/styles.web'
 import { Typography } from '@material-ui/core'
-import actionConnected from '../../public/assets/images/apple/Project_storyboard_action_connected.jpg'
-import suggestions from '../../public/assets/images/apple/Project_view_suggestions.jpg'
+// import actionConnected from '../../public/assets/images/apple/Project_storyboard_action_connected.jpg'
+// import suggestions from '../../public/assets/images/apple/Project_view_suggestions.jpg'
 import Page from '../page'
 
 export default function IOSUpdateView() {
@@ -16,7 +16,7 @@ export default function IOSUpdateView() {
                 </Typography>
                 <Typography className={style.textColor} paragraph>
                     We've created this project on last session. On this session we'll learn how to update label view<br />
-                    <img src={actionConnected} width={"60%"} height={"40%"} alt="" />
+                    {/* <img src={actionConnected} width={"60%"} height={"40%"} alt="" /> */}
                 </Typography>
                 <Typography className={style.textColor} variant="h5" paragraph>Change text of label</Typography>
                 <Typography className={style.textColor} paragraph>
@@ -28,7 +28,7 @@ export default function IOSUpdateView() {
                 <Typography className={style.textColor} variant="h5" paragraph>Change other property of view</Typography>
                 <Typography className={style.textColor} paragraph>
                     When you are typing label.text, the Xcode should suggested you some codes like this.<br />
-                    <img src={suggestions} width={"60%"} height={"40%"} alt="" />
+                    {/* <img src={suggestions} width={"60%"} height={"40%"} alt="" /> */}
                 </Typography>
                 <Typography className={style.textColor} paragraph>
                     If you want to change the textColor, you can do this<br />

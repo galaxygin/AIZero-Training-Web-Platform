@@ -1,10 +1,10 @@
 import React from 'react'
 import { useStyles } from '../../public/assets/styles/styles.web'
 import { Typography } from '@material-ui/core'
-import initial from '../../public/assets/images/apple/screen_transition_initial.jpg'
-import setId from '../../public/assets/images/apple/set_storyboard_id.jpg'
-import nc_from from '../../public/assets/images/apple/nc_transition_from.jpg'
-import nc_to from '../../public/assets/images/apple/nc_transition_to.jpg'
+// import initial from '../../public/assets/images/apple/screen_transition_initial.jpg'
+// import setId from '../../public/assets/images/apple/set_storyboard_id.jpg'
+// import nc_from from '../../public/assets/images/apple/nc_transition_from.jpg'
+// import nc_to from '../../public/assets/images/apple/nc_transition_to.jpg'
 import Page from '../page'
 
 export default function IOSScreenTransition() {
@@ -18,22 +18,22 @@ export default function IOSScreenTransition() {
                 </Typography>
                 <Typography className={style.textColor} paragraph>
                     In this session, we will learn how to go to other screen using NavigationController.<br />
-                    <img src={nc_from} width={"20%"} height={"40%"} alt="" />
-                    <img src={nc_to} width={"20%"} height={"40%"} alt="" /><br />
+                    {/* <img src={nc_from} width={"20%"} height={"40%"} alt="" /> */}
+                    {/* <img src={nc_to} width={"20%"} height={"40%"} alt="" /><br /> */}
                 </Typography>
                 <Typography className={style.textColor} paragraph>
                     Prepare following the environment:<br />
                     ・Prepare NavigationController on storyboard and set it as initial ViewController<br />
                     ・Prepare ViewController on storyboard, put Button and connect it to class using IBAction<br />
                     ・Change the NavigationController's rootViewController to the ViewController you prepared
-                    <img src={initial} width={"60%"} height={"40%"} alt="" /><br />
+                    {/* <img src={initial} width={"60%"} height={"40%"} alt="" /><br /> */}
                 </Typography>
                 <Typography className={style.textColor} variant="h5" paragraph>
                     Set Storyboard ID
                 </Typography>
                 <Typography className={style.textColor} paragraph>
                     Go to storyboard and set ID of the board you want to go<br />
-                    <img src={setId} width={"60%"} height={"40%"} alt="" /><br />
+                    {/* <img src={setId} width={"60%"} height={"40%"} alt="" /><br /> */}
                 </Typography>
                 <Typography className={style.textColor} variant="h5" paragraph>
                     Go to other screen

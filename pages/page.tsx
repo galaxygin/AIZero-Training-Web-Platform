@@ -11,7 +11,7 @@ import WebDrawer from './web/WebDrawer';
 import IOSDrawer from './ios/iOSDrawer'
 import SwiftUIDrawer from './swiftui/SwiftUIDrawer'
 import AndroidDrawer from './android/AndroidDrawer'
-import { Auth } from '../FirebaseManager';
+import { getUser } from '../api/request/AuthRequest';
 
 export default function Page({ content, header = <Header /> }) {
     const drawerStyle = drawerStyles()
@@ -25,8 +25,8 @@ export default function Page({ content, header = <Header /> }) {
 
     }, [])
 
-    const handleProfileMenuOpen = (event) => {
-        // setAnchorEl(event.currentTarget);
+    const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(event.currentTarget);
     };
 
     const handleMobileMenuClose = () => {
@@ -38,17 +38,17 @@ export default function Page({ content, header = <Header /> }) {
         handleMobileMenuClose();
     };
 
-    const handleMobileMenuOpen = (event) => {
+    const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
         setMobileMoreAnchorEl(event.currentTarget);
     };
 
-    function handlePlatform(e) {
-        changePlatform(e.target.value)
+    function handlePlatform(e: React.ChangeEvent<{ value: unknown }>) {
+        changePlatform(e.target.value as string)
         if (e.target.value === "ios") {
         }
     }
 
-    const changeDrawer = (platform) => {
+    const changeDrawer = (platform: string) => {
         switch (platform) {
             case "web":
                 return <WebDrawer />
@@ -63,7 +63,7 @@ export default function Page({ content, header = <Header /> }) {
         }
     }
 
-    if (Auth.currentUser) {
+    if (getUser()) {
         return (
             <div className={drawerStyle.root}>
                 {header}

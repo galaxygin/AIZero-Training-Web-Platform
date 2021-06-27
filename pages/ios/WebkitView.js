@@ -1,11 +1,11 @@
 import React from 'react'
 import { useStyles } from '../../public/assets/styles/styles.web'
 import { Typography } from '@material-ui/core'
-import chooseWebKit from '../../public/assets/images/apple/choose_webkit.jpg'
-import choose_bar_button_item from '../../public/assets/images/apple/choose_bar_button_item.jpg'
-import navTop from '../../public/assets/images/apple/place_item_nav_right.jpg'
-import wvLinked from '../../public/assets/images/apple/wv_linked.jpg'
-import wvResult from '../../public/assets/images/apple/wv_result.jpg'
+// import chooseWebKit from '../../public/assets/images/apple/choose_webkit.jpg'
+// import choose_bar_button_item from '../../public/assets/images/apple/choose_bar_button_item.jpg'
+// import navTop from '../../public/assets/images/apple/place_item_nav_right.jpg'
+// import wvLinked from '../../public/assets/images/apple/wv_linked.jpg'
+// import wvResult from '../../public/assets/images/apple/wv_result.jpg'
 import Page from '../page'
 
 export default function WebkitView() {
@@ -19,7 +19,7 @@ export default function WebkitView() {
                 </Typography>
                 <Typography className={style.textColor} paragraph>
                     In this session, you will learn how to develop a simple browser view using WebKit View<br />
-                    <img src={wvResult} width={"20%"} height={"40%"} alt="" /><br />
+                    {/* <img src={wvResult} width={"20%"} height={"40%"} alt="" /><br /> */}
                 </Typography>
                 <Typography className={style.textColor} variant="h5" paragraph>
                     Setup views
@@ -27,15 +27,15 @@ export default function WebkitView() {
                 <Typography className={style.textColor} paragraph>
                     Open Storyboard and prepare a View Controller (With Navigation Controller is recommended)<br />
                     Then choose WebKit View<br />
-                    <img src={chooseWebKit} width={"60%"} height={"40%"} alt="" /><br />
+                    {/* <img src={chooseWebKit} width={"60%"} height={"40%"} alt="" /><br /> */}
                     Then add some Bar Button Item(s) to give some functionality to the webview<br />
-                    <img src={choose_bar_button_item} width={"60%"} height={"40%"} alt="" /><br />
+                    {/* <img src={choose_bar_button_item} width={"60%"} height={"40%"} alt="" /><br /> */}
                     Place it on the right of the Navigation Bar (Top bar) ※You have to add NavigationBar first if you haven't connected NavigationController<br />
-                    <img src={navTop} width={"60%"} height={"40%"} alt="" /><br />
+                    {/* <img src={navTop} width={"60%"} height={"40%"} alt="" /><br /> */}
                     Put 2 more items on the bottom bar and link views to the class<br />
                     ※If using NavigationController: open config and check shows Toolbar<br />
                     ※Otherwise: Add Toolbar manually to the bottom<br />
-                    <img src={wvLinked} width={"60%"} height={"40%"} alt="" /><br />
+                    {/* <img src={wvLinked} width={"60%"} height={"40%"} alt="" /><br /> */}
                     When you linked the WebKit View to the class, don't forget to add "import WebKit" to the top<br />
                 </Typography>
                 <Typography className={style.textColor} variant="h5" paragraph>
@@ -103,7 +103,7 @@ export default function WebkitView() {
                 </Typography>
                 <Typography className={style.textColor} paragraph>
                     Now should be able to see the screen like this (If you added X button)<br />
-                    <img src={wvResult} width={"20%"} height={"40%"} alt="" /><br />
+                    {/* <img src={wvResult} width={"20%"} height={"40%"} alt="" /><br /> */}
                 </Typography>
             </div>
         )

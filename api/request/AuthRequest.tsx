@@ -18,6 +18,10 @@ export function getUser() {
     return Auth.currentUser
 }
 
+export function sendPasswordReset(email: string) {
+    return Auth.sendPasswordResetEmail(email)
+}
+
 export function signOut() {
     return Auth.signOut()
 }

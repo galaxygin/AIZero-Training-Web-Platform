@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStyles } from '../../public/assets/styles/styles.web'
 import { Typography } from '@material-ui/core'
-import vcImg from '../../public/assets/images/apple/Project_vc.jpg'
+// import vcImg from '../../public/assets/images/apple/Project_vc.jpg'
 import Page from '../page'
 
 export default function UIViewController() {
@@ -27,7 +27,7 @@ export default function UIViewController() {
                 <Typography className={style.textColor} paragraph>Ok,then let's learn UIViewController.<br />
                     ※Note that the things we are going to do is just one of the way to develop. If you have enough knowledge and prefers another way, you don't have to follow this way.</Typography>
                 <Typography className={style.textColor} paragraph>First, open the ViewController.swift. If you came across the first session, it's file should look like this<br />
-                    <img src={vcImg} width={"60%"} height={"40%"} alt="" /><br />
+                    {/* <img src={vcImg} width={"60%"} height={"40%"} alt="" /><br /> */}
                     The ViewController at this stage has only little bit of code after the project is created.<br />
                     So, let's look in to it.
                 </Typography>

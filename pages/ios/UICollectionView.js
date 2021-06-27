@@ -1,20 +1,20 @@
 import React from 'react'
 import { useStyles } from '../../public/assets/styles/styles.web'
 import { Typography } from '@material-ui/core'
-import chooseCV from '../../public/assets/images/apple/choose_cv.jpg'
-import cvLinked from '../../public/assets/images/apple/cv_linked.jpg'
-import createFile from '../../public/assets/images/apple/Project_create_file.jpg'
-import cvCell from '../../public/assets/images/apple/cvcell.jpg'
-import cvCellCreated from '../../public/assets/images/apple/cvcell_created.jpg'
-import cvCellView from '../../public/assets/images/apple/cvcell_setup_view.jpg'
-import cvCellSetConstraints from '../../public/assets/images/apple/cvcell_set_constraints.jpg'
-import importImage from '../../public/assets/images/apple/import_image.jpg'
-import cvCellConstraints from '../../public/assets/images/apple/cvcell_constraints.jpg'
-import cvCellIdentifier from '../../public/assets/images/apple/cvcell_identifier.jpg'
-import cvCellLinked from '../../public/assets/images/apple/cvcell_view_linked.jpg'
-import cvExtension from '../../public/assets/images/apple/cv_extension.jpg'
-import cvResult from '../../public/assets/images/apple/cv_result.jpg'
-import cvHorizontal from '../../public/assets/images/apple/cv_horizontal_config.jpg'
+// import chooseCV from '../../public/assets/images/apple/choose_cv.jpg'
+// import cvLinked from '../../public/assets/images/apple/cv_linked.jpg'
+// import createFile from '../../public/assets/images/apple/Project_create_file.jpg'
+// import cvCell from '../../public/assets/images/apple/cvcell.jpg'
+// import cvCellCreated from '../../public/assets/images/apple/cvcell_created.jpg'
+// import cvCellView from '../../public/assets/images/apple/cvcell_setup_view.jpg'
+// import cvCellSetConstraints from '../../public/assets/images/apple/cvcell_set_constraints.jpg'
+// import importImage from '../../public/assets/images/apple/import_image.jpg'
+// import cvCellConstraints from '../../public/assets/images/apple/cvcell_constraints.jpg'
+// import cvCellIdentifier from '../../public/assets/images/apple/cvcell_identifier.jpg'
+// import cvCellLinked from '../../public/assets/images/apple/cvcell_view_linked.jpg'
+// import cvExtension from '../../public/assets/images/apple/cv_extension.jpg'
+// import cvResult from '../../public/assets/images/apple/cv_result.jpg'
+// import cvHorizontal from '../../public/assets/images/apple/cv_horizontal_config.jpg'
 import Page from '../page'
 
 export default function UICollectionView() {
@@ -29,7 +29,7 @@ export default function UICollectionView() {
                 <Typography className={style.textColor} paragraph>
                     UICollection is the grid view and it's implementatuon method is very similar to TableView.<br />
                     We will make something like this<br />
-                    <img src={cvResult} width={"20%"} height={"40%"} alt="" /><br />
+                    {/* <img src={cvResult} width={"20%"} height={"40%"} alt="" /><br /> */}
                 </Typography>
                 <Typography className={style.textColor} variant="h5" paragraph>
                     Create layout and link to the class
@@ -37,8 +37,8 @@ export default function UICollectionView() {
                 <Typography className={style.textColor} paragraph>
                     Creating a class named CollectionViewSample<br />
                     ※If you don't know how to do it, see the previous sessions.<br />
-                    <img src={chooseCV} width={"60%"} height={"40%"} alt="" /><br />
-                    <img src={cvLinked} width={"60%"} height={"40%"} alt="" />
+                    {/* <img src={chooseCV} width={"60%"} height={"40%"} alt="" /><br /> */}
+                    {/* <img src={cvLinked} width={"60%"} height={"40%"} alt="" /> */}
                 </Typography>
                 <Typography className={style.textColor} variant="h5" paragraph>
                     Create a UICollectionViewCell class
@@ -46,11 +46,11 @@ export default function UICollectionView() {
                 <Typography className={style.textColor} paragraph>
                     Cell class is used as a layout for collection items.<br />
                     To create a cell class, right click the file navigator or create file from File menu.<br />
-                    <img src={createFile} width={"60%"} height={"40%"} alt="" /><br />
+                    {/* <img src={createFile} width={"60%"} height={"40%"} alt="" /><br /> */}
                     Enter the class name, choose UICollectionViewCell as subclass and check Also create XIB file<br />
-                    <img src={cvCell} width={"60%"} height={"40%"} alt="" /><br />
+                    {/* <img src={cvCell} width={"60%"} height={"40%"} alt="" /><br /> */}
                     Open the both class file and XIB file<br />
-                    <img src={cvCellCreated} width={"60%"} height={"40%"} alt="" /><br />
+                    {/* <img src={cvCellCreated} width={"60%"} height={"40%"} alt="" /><br /> */}
                 </Typography>
                 <Typography className={style.textColor} variant="h5" paragraph>
                     Design the layout of the cell and link the view to the cell
@@ -58,18 +58,18 @@ export default function UICollectionView() {
                 <Typography className={style.textColor} paragraph>
                     The way to design the layout of the cell is almost same as Storyboard.<br />
                     But when the Collection Cell is created, it don't have the basic "View". So let's add "View" with constraints<br />
-                    <img src={cvCellView} width={"60%"} height={"40%"} alt="" /><br />
+                    {/* <img src={cvCellView} width={"60%"} height={"40%"} alt="" /><br /> */}
                     I placed "ImageView" and "Label" on Cell and adding constraints. You can design your original layout if you want, but don't forget to set constraints to the view.<br />
                     We will adjust the size of the cell later by programatically, thus the layout won't be rendered as expected if the AutoLayout isn't set.<br />
-                    <img src={cvCellSetConstraints} width={"60%"} height={"40%"} alt="" /><br />
+                    {/* <img src={cvCellSetConstraints} width={"60%"} height={"40%"} alt="" /><br /> */}
                     If you want to import images, this is the way to do so. Assets.xcassets<br />
-                    <img src={importImage} width={"60%"} height={"40%"} alt="" /><br />
+                    {/* <img src={importImage} width={"60%"} height={"40%"} alt="" /><br /> */}
                     Cell constraints are done<br />
-                    <img src={cvCellConstraints} width={"60%"} height={"40%"} alt="" /><br />
+                    {/* <img src={cvCellConstraints} width={"60%"} height={"40%"} alt="" /><br /> */}
                     Don't forget to set identifier for cell<br />
-                    <img src={cvCellIdentifier} width={"60%"} height={"40%"} alt="" /><br />
+                    {/* <img src={cvCellIdentifier} width={"60%"} height={"40%"} alt="" /><br /> */}
                     Link the view and define the function to change it's property<br />
-                    <img src={cvCellLinked} width={"60%"} height={"40%"} alt="" /><br />
+                    {/* <img src={cvCellLinked} width={"60%"} height={"40%"} alt="" /><br /> */}
                     Now, the cell is ready
                 </Typography>
                 <Typography className={style.textColor} variant="h5" paragraph>
@@ -93,7 +93,7 @@ export default function UICollectionView() {
                 </Typography>
                 <Typography className={style.textColor} paragraph>
                     Copy and paste the following to BELOW THE CLASS (Must be outside class)<br />
-                    <img src={cvExtension} width={"60%"} height={"40%"} alt="" /><br />
+                    {/* <img src={cvExtension} width={"60%"} height={"40%"} alt="" /><br /> */}
                     You should be able to understand what each functions are doing by each name and arguments.<br />
                 </Typography>
                 <Typography className={style.textColor} variant="h5" paragraph>
@@ -123,14 +123,14 @@ export default function UICollectionView() {
                 </Typography>
                 <Typography className={style.textColor} paragraph>
                     If you were following the exact instructions, you will be able to see this screen when you run the project<br />
-                    <img src={cvResult} width={"20%"} height={"40%"} alt="" /><br />
+                    {/* <img src={cvResult} width={"20%"} height={"40%"} alt="" /><br /> */}
                 </Typography>
                 <Typography className={style.textColor} variant="h5" paragraph>
                     Horizontal collection
                 </Typography>
                 <Typography className={style.textColor} paragraph>
                     To configure the collection as horizontal, set scroll direction to "Horizontal"<br />
-                    <img src={cvHorizontal} width={"60%"} height={"40%"} alt="" /><br />
+                    {/* <img src={cvHorizontal} width={"60%"} height={"40%"} alt="" /><br /> */}
                 </Typography>
             </div>
         )
