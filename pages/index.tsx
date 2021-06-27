@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useStyles } from '../public/assets/styles/styles.web'
 import { Typography, Grid, Paper, Link, IconButton, Menu, MenuItem } from '@material-ui/core'
 import { AccountCircle } from '@material-ui/icons';
@@ -8,26 +8,20 @@ import { signOut } from '../api/request/AuthRequest';
 export default function AppIndex() {
     const style = useStyles()
     const [anchorEl, setAnchorEl] = useState(null);
-    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
+    const [innerWidth, setInnerWidth] = useState(0)
 
     const isMenuOpen = Boolean(anchorEl);
-    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+    useEffect(() => {
+        setInnerWidth(window.innerWidth)
+    }, [])
 
     const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
     };
 
-    const handleMobileMenuClose = () => {
-        setMobileMoreAnchorEl(null);
-    };
-
     const handleMenuClose = () => {
         setAnchorEl(null);
-        handleMobileMenuClose();
-    };
-
-    const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-        setMobileMoreAnchorEl(event.currentTarget);
     };
 
     const menuId = 'primary-search-account-menu';
@@ -50,7 +44,7 @@ export default function AppIndex() {
     function content() {
         return (
             <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", backgroundColor: "#191970" }}>
-                <div style={{ flex: 1, display: "flex", flexDirection: "row", alignItems: "center", width: window.innerWidth - 100 }}>
+                <div style={{ flex: 1, display: "flex", flexDirection: "row", alignItems: "center", width: innerWidth - 100 }}>
                     <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
                         <Typography className={style.textColor} variant="h3" style={{ marginTop: 32 }} paragraph>
                             AIZero Training
