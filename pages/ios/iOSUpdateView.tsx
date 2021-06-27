@@ -3,7 +3,7 @@ import { useStyles } from '../../public/assets/styles/styles.web'
 import { Typography } from '@material-ui/core'
 // import actionConnected from '../../public/assets/images/apple/Project_storyboard_action_connected.jpg'
 // import suggestions from '../../public/assets/images/apple/Project_view_suggestions.jpg'
-import Page from '../page'
+import PageBase from '../PageBase'
 
 export default function IOSUpdateView() {
     const style = useStyles()
@@ -41,5 +41,5 @@ export default function IOSUpdateView() {
         )
     }
 
-    return <Page content={content()} />
+    return <PageBase content={content()} />
 }

@@ -6,7 +6,7 @@ import { Typography } from '@material-ui/core'
 // import configImg from '../../public/assets/images/apple/Project_config.jpg'
 // import vcImg from '../../public/assets/images/apple/Project_vc.jpg'
 // import storyboardImg from '../../public/assets/images/apple/Project_storyboard.jpg'
-import Page from '../page'
+import PageBase from '../PageBase'
 
 export default function IOSCreateProject() {
     const style = useStyles()
@@ -47,5 +47,5 @@ export default function IOSCreateProject() {
         )
     }
 
-    return <Page content={content()} />
+    return <PageBase content={content()} />
 }

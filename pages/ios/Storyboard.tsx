@@ -5,7 +5,7 @@ import { Typography } from '@material-ui/core'
 // import addViewImg from '../../public/assets/images/apple/Project_storyboard_add_view.jpg'
 // import viewConfigImg from '../../public/assets/images/apple/Project_storyboard_view_config.jpg'
 // import viewDoneImg from '../../public/assets/images/apple/Project_storyboard_done.jpg'
-import Page from '../page'
+import PageBase from '../PageBase'
 
 export default function Storyboard() {
     const style = useStyles()
@@ -33,5 +33,5 @@ export default function Storyboard() {
         )
     }
 
-    return <Page content={content()} />
+    return <PageBase content={content()} />
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import { useStyles } from '../../public/assets/styles/styles.web'
 import { Typography } from '@material-ui/core'
 // import img from '../../public/assets/images/apple/Project_Button_example.jpg'
-import Page from '../page'
+import PageBase from '../PageBase'
 
 export default function IOSButton() {
     const style = useStyles()
@@ -25,5 +25,5 @@ export default function IOSButton() {
         )
     }
 
-    return <Page content={content()} />
+    return <PageBase content={content()} />
 }

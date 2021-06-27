@@ -5,7 +5,7 @@ import viewDoneImg from '../../public/assets/images/apple/Project_storyboard_don
 import addConstraintImg from '../../public/assets/images/apple/Project_storyboard_constraints.jpg'
 import constraintAddedImg from '../../public/assets/images/apple/Project_storyboard_constraint_added.jpg'
 import editConstraintImg from '../../public/assets/images/apple/Project_storyboard_edit_constraint.jpg'
-import Page from '../page'
+import PageBase from '../PageBase'
 
 export default function Autokayout() {
     const style = useStyles()
@@ -39,5 +39,5 @@ export default function Autokayout() {
         )
     }
 
-    return <Page content={content()} />
+    return <PageBase content={content()} />
 }

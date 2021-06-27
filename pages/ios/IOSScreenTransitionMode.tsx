@@ -2,7 +2,7 @@ import React from 'react'
 import { useStyles } from '../../public/assets/styles/styles.web'
 import { Typography } from '@material-ui/core'
 // import initial from '../../public/assets/images/apple/transition_mode_initial.jpg'
-import Page from '../page'
+import PageBase from '../PageBase'
 
 export default function IOSScreenTransitionMode() {
     const style = useStyles()
@@ -64,5 +64,5 @@ export default function IOSScreenTransitionMode() {
         )
     }
 
-    return <Page content={content()} />
+    return <PageBase content={content()} />
 }

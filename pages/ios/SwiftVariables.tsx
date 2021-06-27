@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStyles } from '../../public/assets/styles/styles.web'
 import { Typography } from '@material-ui/core'
-import Page from '../page'
+import PageBase from '../PageBase'
 
 export default function SwiftVariables() {
     const style = useStyles()
@@ -41,5 +41,5 @@ export default function SwiftVariables() {
         )
     }
 
-    return <Page content={content()} />
+    return <PageBase content={content()} />
 }

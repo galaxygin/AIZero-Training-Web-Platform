@@ -1,7 +1,7 @@
 import React from 'react'
 import { Typography } from '@material-ui/core'
 import { useStyles } from '../../public/assets/styles/styles.web'
-import Page from '../page'
+import PageBase from '../PageBase'
 
 export default function IOSGetStarted() {
     const style = useStyles()
@@ -33,5 +33,5 @@ export default function IOSGetStarted() {
         )
     }
 
-    return <Page content={renderContent()} />
+    return <PageBase content={renderContent()} />
 }

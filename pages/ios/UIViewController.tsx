@@ -2,7 +2,7 @@ import React from 'react'
 import { useStyles } from '../../public/assets/styles/styles.web'
 import { Typography } from '@material-ui/core'
 // import vcImg from '../../public/assets/images/apple/Project_vc.jpg'
-import Page from '../page'
+import PageBase from '../PageBase'
 
 export default function UIViewController() {
     const style = useStyles()
@@ -42,5 +42,5 @@ export default function UIViewController() {
         )
     }
 
-    return <Page content={content()} />
+    return <PageBase content={content()} />
 }

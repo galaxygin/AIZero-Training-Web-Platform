@@ -6,7 +6,7 @@ import { Typography } from '@material-ui/core'
 // import navTop from '../../public/assets/images/apple/place_item_nav_right.jpg'
 // import wvLinked from '../../public/assets/images/apple/wv_linked.jpg'
 // import wvResult from '../../public/assets/images/apple/wv_result.jpg'
-import Page from '../page'
+import PageBase from '../PageBase'
 
 export default function WebkitView() {
     const style = useStyles()
@@ -109,5 +109,5 @@ export default function WebkitView() {
         )
     }
 
-    return <Page content={content()} />
+    return <PageBase content={content()} />
 }

@@ -4,7 +4,7 @@ import { Typography } from '@material-ui/core'
 // import chooseNC from '../../public/assets/images/apple/choose_nc.jpg'
 // import ncAdded from '../../public/assets/images/apple/nc_added.jpg'
 // import ncChangeDefault from '../../public/assets/images/apple/nc_change_default.jpg'
-import Page from '../page'
+import PageBase from '../PageBase'
 
 export default function UINavigationController() {
     const style = useStyles()
@@ -39,5 +39,5 @@ export default function UINavigationController() {
         )
     }
 
-    return <Page content={content()} />
+    return <PageBase content={content()} />
 }

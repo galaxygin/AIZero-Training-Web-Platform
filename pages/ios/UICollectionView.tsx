@@ -15,7 +15,7 @@ import { Typography } from '@material-ui/core'
 // import cvExtension from '../../public/assets/images/apple/cv_extension.jpg'
 // import cvResult from '../../public/assets/images/apple/cv_result.jpg'
 // import cvHorizontal from '../../public/assets/images/apple/cv_horizontal_config.jpg'
-import Page from '../page'
+import PageBase from '../PageBase'
 
 export default function UICollectionView() {
     const style = useStyles()
@@ -136,5 +136,5 @@ export default function UICollectionView() {
         )
     }
 
-    return <Page content={content()} />
+    return <PageBase content={content()} />
 }

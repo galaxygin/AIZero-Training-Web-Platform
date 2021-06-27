@@ -5,7 +5,7 @@ import { Typography } from '@material-ui/core'
 // import setId from '../../public/assets/images/apple/set_storyboard_id.jpg'
 // import nc_from from '../../public/assets/images/apple/nc_transition_from.jpg'
 // import nc_to from '../../public/assets/images/apple/nc_transition_to.jpg'
-import Page from '../page'
+import PageBase from '../PageBase'
 
 export default function IOSScreenTransition() {
     const style = useStyles()
@@ -67,5 +67,5 @@ export default function IOSScreenTransition() {
         )
     }
 
-    return <Page content={content()} />
+    return <PageBase content={content()} />
 }

@@ -9,7 +9,7 @@ import { Typography } from '@material-ui/core'
 // import tbcClass from '../../public/assets/images/apple/tbc_create_class.jpg'
 // import tbcLink from '../../public/assets/images/apple/tbc_link_class.jpg'
 // import tbcBadge from '../../public/assets/images/apple/tbc_badge.jpg'
-import Page from '../page'
+import PageBase from '../PageBase'
 
 export default function TabBarController() {
     const style = useStyles()
@@ -76,5 +76,5 @@ export default function TabBarController() {
         )
     }
 
-    return <Page content={content()} />
+    return <PageBase content={content()} />
 }

@@ -18,6 +18,10 @@ export function getUser() {
     return Auth.currentUser
 }
 
+export function changePassword(newPW: string) {
+    return Auth.currentUser.updatePassword(newPW)
+}
+
 export function sendPasswordReset(email: string) {
     return Auth.sendPasswordResetEmail(email)
 }

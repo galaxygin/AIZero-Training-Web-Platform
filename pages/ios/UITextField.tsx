@@ -4,7 +4,7 @@ import { Typography } from '@material-ui/core'
 // import tfInitial from '../../public/assets/images/apple/tf_initial.jpg'
 // import tfConfigure from '../../public/assets/images/apple/tf_configure.jpg'
 // import tfResult from '../../public/assets/images/apple/tf_result.jpg'
-import Page from '../page'
+import PageBase from '../PageBase'
 
 export default function UITextField() {
     const style = useStyles()
@@ -63,5 +63,5 @@ export default function UITextField() {
         )
     }
 
-    return <Page content={content()} />
+    return <PageBase content={content()} />
 }

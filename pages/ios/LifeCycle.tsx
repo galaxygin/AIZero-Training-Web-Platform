@@ -3,7 +3,7 @@ import { useStyles } from '../../public/assets/styles/styles.web'
 import { Typography } from '@material-ui/core'
 // import ios_lifecycle from '../../public/assets/images/apple/ios_lifecycle.jpg'
 // import vc_lifecycle from '../../public/assets/images/apple/vc_lifecycle.jpg'
-import Page from '../page'
+import PageBase from '../PageBase'
 
 export default function LifeCycle() {
     const style = useStyles()
@@ -25,5 +25,5 @@ export default function LifeCycle() {
         )
     }
 
-    return <Page content={content()} />
+    return <PageBase content={content()} />
 }

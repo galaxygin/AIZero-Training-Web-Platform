@@ -1,46 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import { Link, Select, MenuItem, Theme, IconButton, Menu, AppBar, Toolbar, Typography } from '@material-ui/core';
 import { AccountCircle } from '@material-ui/icons';
-import { useRouter } from 'next/router';
 import { createStyles, makeStyles } from '@material-ui/styles';
 import Header from './Header';
-import SignIn from './signin';
 import WebDrawer from './web/WebDrawer';
 import IOSDrawer from './ios/iOSDrawer'
 import SwiftUIDrawer from './swiftui/SwiftUIDrawer'
 import AndroidDrawer from './android/AndroidDrawer'
-import { getUser, signOut } from '../api/request/AuthRequest';
+import { signOut } from '../api/request/AuthRequest';
+import PageCore from './PageCore';
 
-export default function Page({ content, header = <Header /> }) {
+export default function PageBase({ content, header = <Header />, selectedPlatform = "ios" }) {
     const drawerStyle = drawerStyles()
-    const router = useRouter()
-    const [platform, changePlatform] = useState("ios")
+    const [platform, changePlatform] = useState(selectedPlatform)
 
     const [anchorEl, setAnchorEl] = useState(null);
-    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 
     const isMenuOpen = Boolean(anchorEl);
-    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
     useEffect(() => {
-
+        if (selectedPlatform != "ios") {
+            changeDrawer(selectedPlatform)
+        }
     }, [])
 
     const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
     };
 
-    const handleMobileMenuClose = () => {
-        setMobileMoreAnchorEl(null);
-    };
-
     const handleMenuClose = () => {
         setAnchorEl(null);
-        handleMobileMenuClose();
-    };
-
-    const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-        setMobileMoreAnchorEl(event.currentTarget);
     };
 
     function handlePlatform(e: React.ChangeEvent<{ value: unknown }>) {
@@ -66,23 +55,6 @@ export default function Page({ content, header = <Header /> }) {
         </Menu>
     );
 
-    const mobileMenuId = 'primary-search-account-menu-mobile';
-    const renderMobileMenu = (
-        <Menu
-            anchorEl={mobileMoreAnchorEl}
-            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-            id={mobileMenuId}
-            keepMounted
-            transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-            open={isMobileMenuOpen}
-            onClose={handleMobileMenuClose}
-        >
-            <MenuItem onClick={() => signOut().then(() => {
-                window.location.href = "/"
-            })}>Log out</MenuItem>
-        </Menu>
-    );
-
     const changeDrawer = (platform: string) => {
         switch (platform) {
             case "web":
@@ -98,10 +70,10 @@ export default function Page({ content, header = <Header /> }) {
         }
     }
 
-    if (getUser()) {
+    function renderContent() {
         return (
             <div className={drawerStyle.root}>
-                {header}
+                {/* {header} */}
                 <AppBar position="fixed" className={drawerStyle.appBar}>
                     <Toolbar>
                         <Link href="/" color="inherit">
@@ -118,33 +90,19 @@ export default function Page({ content, header = <Header /> }) {
                             <MenuItem value={"android"}>Android</MenuItem>
                         </Select>
                         <div className={drawerStyle.grow} />
-                        <div className={drawerStyle.sectionDesktop}>
-                            <IconButton
-                                edge="end"
-                                aria-label="account of current user"
-                                aria-controls={menuId}
-                                aria-haspopup="true"
-                                onClick={handleProfileMenuOpen}
-                                color="inherit"
-                            >
-                                <AccountCircle />
-                            </IconButton>
-                        </div>
-                        <div className={drawerStyle.sectionMobile}>
-                            <IconButton
-                                aria-label="show more"
-                                aria-controls={mobileMenuId}
-                                aria-haspopup="true"
-                                onClick={handleMobileMenuOpen}
-                                color="inherit"
-                            >
-                                <AccountCircle />
-                            </IconButton>
-                        </div>
+                        <IconButton
+                            edge="end"
+                            aria-label="account of current user"
+                            aria-controls={menuId}
+                            aria-haspopup="true"
+                            onClick={handleProfileMenuOpen}
+                            color="inherit"
+                        >
+                            <AccountCircle />
+                        </IconButton>
                     </Toolbar>
                 </AppBar>
                 {renderMenu}
-                {renderMobileMenu}
                 <nav className={drawerStyle.drawer}>
                     {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
                     {changeDrawer(platform)}
@@ -155,9 +113,9 @@ export default function Page({ content, header = <Header /> }) {
                 </main>
             </div>
         )
-    } else {
-        return <SignIn />
     }
+
+    return <PageCore content={renderContent()} header={header} />
 }
 
 const drawerWidth = 240;

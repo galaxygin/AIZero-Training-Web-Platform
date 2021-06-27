@@ -6,7 +6,7 @@ import { Typography } from '@material-ui/core'
 // import segue_identifier from '../../public/assets/images/apple/segue_identifier.jpg'
 // import commented from '../../public/assets/images/apple/commented_navigation.jpg'
 // import segue_prepare from '../../public/assets/images/apple/segue_prepare.jpg'
-import Page from '../page'
+import PageBase from '../PageBase'
 
 export default function ScreenTransitionSegue() {
     const style = useStyles()
@@ -57,5 +57,5 @@ export default function ScreenTransitionSegue() {
         )
     }
 
-    return <Page content={content()} />
+    return <PageBase content={content()} />
 }

@@ -1,21 +1,74 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useStyles } from '../public/assets/styles/styles.web'
-import { Typography, Grid, Paper, Link } from '@material-ui/core'
-import { getUser } from '../api/request/AuthRequest'
-import SignIn from './signin'
+import { Typography, Grid, Paper, Link, IconButton, Menu, MenuItem } from '@material-ui/core'
+import { AccountCircle } from '@material-ui/icons';
+import PageCore from './PageCore'
+import { signOut } from '../api/request/AuthRequest';
 
 export default function AppIndex() {
     const style = useStyles()
+    const [anchorEl, setAnchorEl] = useState(null);
+    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 
-    if (getUser()) {
+    const isMenuOpen = Boolean(anchorEl);
+    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+    const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleMobileMenuClose = () => {
+        setMobileMoreAnchorEl(null);
+    };
+
+    const handleMenuClose = () => {
+        setAnchorEl(null);
+        handleMobileMenuClose();
+    };
+
+    const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+        setMobileMoreAnchorEl(event.currentTarget);
+    };
+
+    const menuId = 'primary-search-account-menu';
+    const renderMenu = (
+        <Menu
+            anchorEl={anchorEl}
+            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+            id={menuId}
+            keepMounted
+            transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+            open={isMenuOpen}
+            onClose={handleMenuClose}
+        >
+            <MenuItem onClick={() => signOut().then(() => {
+                window.location.href = "/"
+            })}>Log out</MenuItem>
+        </Menu>
+    );
+
+    function content() {
         return (
             <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", backgroundColor: "#191970" }}>
-                <Typography className={style.textColor} variant="h3" style={{ marginTop: 32 }} paragraph>
-                    AIZero Training
-                </Typography>
-                <Typography className={style.textColor} paragraph>
-                    A training platform for people works for AIZero
-                </Typography>
+                <div style={{ flex: 1, display: "flex", flexDirection: "row", alignItems: "center", width: window.innerWidth - 100 }}>
+                    <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+                        <Typography className={style.textColor} variant="h3" style={{ marginTop: 32 }} paragraph>
+                            AIZero Training
+                        </Typography>
+                        <Typography className={style.textColor} paragraph>
+                            A training platform for people works for AIZero
+                        </Typography>
+                    </div>
+                    <IconButton
+                        edge="end"
+                        aria-label="account of current user"
+                        aria-haspopup="true"
+                        onClick={handleProfileMenuOpen}
+                        color="inherit"
+                    >
+                        <AccountCircle style={{ width: 100, height: 100, backgroundColor: 'white', borderRadius: 50 }} />
+                    </IconButton>
+                </div>
                 <Grid container style={{ marginTop: 32, marginBottom: 32 }} justify="center" >
                     <Grid item key={"ios"}>
                         <Link href="/ios/GetStarted">
@@ -50,9 +103,10 @@ export default function AppIndex() {
                         </Paper>
                     </Grid>
                 </Grid>
+                {renderMenu}
             </div>
         )
-    } else {
-        return <SignIn />
     }
+
+    return <PageCore content={content()} />
 }

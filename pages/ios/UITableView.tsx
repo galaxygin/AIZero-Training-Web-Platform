@@ -14,7 +14,7 @@ import { Typography } from '@material-ui/core'
 // import tvCellIdentifier from '../../public/assets/images/apple/tvcell_identifier.jpg'
 // import tvExtension from '../../public/assets/images/apple/tv_extension.jpg'
 // import tvResult from '../../public/assets/images/apple/tv_result.jpg'
-import Page from '../page'
+import PageBase from '../PageBase'
 
 export default function UITableView() {
     const style = useStyles()
@@ -127,5 +127,5 @@ export default function UITableView() {
         )
     }
 
-    return <Page content={content()} />
+    return <PageBase content={content()} />
 }

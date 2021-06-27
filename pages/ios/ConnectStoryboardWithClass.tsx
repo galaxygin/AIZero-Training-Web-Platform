@@ -7,7 +7,7 @@ import { Typography } from '@material-ui/core'
 // import viewConnected from '../../public/assets/images/apple/Project_storyboard_view_connected.jpg'
 // import connectAction from '../../public/assets/images/apple/Project_storyboard_connect_action.jpg'
 // import actionConnected from '../../public/assets/images/apple/Project_storyboard_action_connected.jpg'
-import Page from '../page'
+import PageBase from '../PageBase'
 
 export default function ConnectStoryboardWithClass() {
     const style = useStyles()
@@ -43,5 +43,5 @@ export default function ConnectStoryboardWithClass() {
         )
     }
 
-    return <Page content={content()} />
+    return <PageBase content={content()} />
 }
