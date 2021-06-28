@@ -11,9 +11,16 @@ export default function SetUpEnvironment() {
             <div>
                 <Typography className={style.textColor} variant="h3" paragraph >Set up environment</Typography>
                 <Typography className={style.textColor} paragraph >
-                    We will install and setting up following frameworks and softwares:
+                    We will install and setting up the frameworks and softwares:
                 </Typography>
                 <Typography className={style.textColor} paragraph>
+                    First, download and install Node JS
+
+                    By installing this enables you to use Node from the Terminal app.
+                    Open the Terminal and install these
+                    {/* Yarn */}
+                    {/* firebase-tools */}
+
                     ・React: One of the major web framework<br />
                     ・Next JS: One of the web framework to develop dynamic pages<br />
                     ・Material-UI: One of the major web design framework<br />

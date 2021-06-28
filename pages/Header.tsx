@@ -1,5 +1,5 @@
 import Head from 'next/head'
-export default function Header({ title = "AIZero Training", url = "AIZero.com.au", thumbnail_url = "" }) {
+export default function Header({ title = "AIZero Training", url = "training.AIZero.com.au", thumbnail_url = "" }) {
     return <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />

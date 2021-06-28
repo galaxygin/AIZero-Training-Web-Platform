@@ -13,7 +13,6 @@ import PageCore from './PageCore';
 export default function PageBase({ content, header = <Header />, selectedPlatform = "ios" }) {
     const drawerStyle = drawerStyles()
     const [platform, changePlatform] = useState(selectedPlatform)
-
     const [anchorEl, setAnchorEl] = useState(null);
 
     const isMenuOpen = Boolean(anchorEl);
@@ -24,20 +23,6 @@ export default function PageBase({ content, header = <Header />, selectedPlatfor
         }
     }, [])
 
-    const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleMenuClose = () => {
-        setAnchorEl(null);
-    };
-
-    function handlePlatform(e: React.ChangeEvent<{ value: unknown }>) {
-        changePlatform(e.target.value as string)
-        if (e.target.value === "ios") {
-        }
-    }
-
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
         <Menu
@@ -47,7 +32,7 @@ export default function PageBase({ content, header = <Header />, selectedPlatfor
             keepMounted
             transformOrigin={{ vertical: 'top', horizontal: 'right' }}
             open={isMenuOpen}
-            onClose={handleMenuClose}
+            onClose={() => setAnchorEl(null)}
         >
             <MenuItem onClick={() => signOut().then(() => {
                 window.location.href = "/"
@@ -73,7 +58,6 @@ export default function PageBase({ content, header = <Header />, selectedPlatfor
     function renderContent() {
         return (
             <div className={drawerStyle.root}>
-                {/* {header} */}
                 <AppBar position="fixed" className={drawerStyle.appBar}>
                     <Toolbar>
                         <Link href="/" color="inherit">
@@ -82,7 +66,7 @@ export default function PageBase({ content, header = <Header />, selectedPlatfor
                         <Select
                             style={{ margin: 16, color: "white" }}
                             value={platform}
-                            onChange={handlePlatform}
+                            onChange={e => changePlatform(e.target.value as string)}
                         >
                             <MenuItem value={"web"}>Web</MenuItem>
                             <MenuItem value={"ios"}>iOS</MenuItem>
@@ -95,7 +79,7 @@ export default function PageBase({ content, header = <Header />, selectedPlatfor
                             aria-label="account of current user"
                             aria-controls={menuId}
                             aria-haspopup="true"
-                            onClick={handleProfileMenuOpen}
+                            onClick={e => setAnchorEl(e.currentTarget)}
                             color="inherit"
                         >
                             <AccountCircle />
