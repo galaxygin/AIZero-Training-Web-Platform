@@ -79,6 +79,9 @@ export const useStyles = makeStyles((theme) => ({
     textColor: {
         color: 'white'
     },
+    cmdTextColor: {
+        color: 'lime'
+    },
     control: {
         padding: theme.spacing(2),
     },
@@ -136,6 +139,15 @@ export const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up('md')]: {
             width: '60ch',
         },
+    },
+    cmdInput: {
+        color: 'lime',
+        backgroundColor: 'black',
+        borderColor: 'silver',
+        borderWidth: 1,
+        fontSize: 16,
+        height: 30,
+        minWidth: 300
     },
     sectionDesktop: {
         display: 'none',

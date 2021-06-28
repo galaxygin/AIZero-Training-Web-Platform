@@ -3,7 +3,9 @@ import { useStyles } from '../../public/assets/styles/styles.web'
 import { List, ListItem, Link, ListItemText, Drawer, Divider, Toolbar } from '@material-ui/core'
 
 const menu = [{ "title": "Get started", "uri": "GetStarted" },
-{ "title": "Set up environment", "uri": "SetUp-Environment" }]
+{ "title": "Set up environment", "uri": "SetUp-Environment" },
+{ "title": "Create a new Project", "uri": "CreateProject" },
+{ "title": "Run the project in dev mode", "uri": "RunTheProjectInDevMode" }]
 
 export default function WebDrawer() {
     const styles = useStyles()
