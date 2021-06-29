@@ -7,7 +7,8 @@ const menu = [{ "title": "Get started", "uri": "GetStarted" },
 { "title": "Create a new Project", "uri": "CreateProject" },
 { "title": "Run the project in dev mode", "uri": "RunTheProjectInDevMode" },
 { "title": "Project Structure", "uri": "ProjectStructure" },
-{ "title": "Edit index.tsx", "uri": "EditIndex" }]
+{ "title": "Edit index.tsx", "uri": "EditIndex" },
+{ "title": "Setup Material-UI", "uri": "SetupMUI" }]
 
 export default function WebDrawer() {
     const styles = useStyles()

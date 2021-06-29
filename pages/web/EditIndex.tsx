@@ -14,11 +14,11 @@ export default function EditIndex() {
                     We will now open the project with VS Code and edit index.tsx:<br />
                     *Replace all steps with your editor if you don't use VS Code.<br /><br />
                     Open the VS Code<br />
-                    <img src={"https://training.aizero.com.au/assets/images/apple/VSCode_opened.png"} width={"60%"} height={"40%"} alt="" /><br />
+                    <img src={"https://training.aizero.com.au/assets/images/web/VSCode_opened.png"} width={"60%"} height={"40%"} alt="" /><br />
                     Then click "Open Folder" and select the project directory. Then the editor will show the files and folders<br />
-                    <img src={"https://training.aizero.com.au/assets/images/apple/VSCode_project_opened.png"} width={"60%"} height={"40%"} alt="" /><br />
+                    <img src={"https://training.aizero.com.au/assets/images/web/VSCode_project_opened.png"} width={"60%"} height={"40%"} alt="" /><br />
                     Click the pages and open the index.tsx. The codes in here are shown on the website currently<br />
-                    <img src={"https://training.aizero.com.au/assets/images/apple/VSCode_index_opened.png"} width={"60%"} height={"40%"} alt="" /><br /><br />
+                    <img src={"https://training.aizero.com.au/assets/images/web/VSCode_index_opened.png"} width={"60%"} height={"40%"} alt="" /><br /><br />
                     On React, we develop pages using function (React Hook) or class and export it.<br />
                     The default enables exporting as primary export. If you don't forget export, the page and build won't work<br /><br />
                     On Next.js, function based development is familiar. So we will learn function based development.<br />
