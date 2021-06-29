@@ -19,7 +19,7 @@ export default function IOSButton() {
                 <Typography className={style.textColor} paragraph>
                     This session just shows you the example of updating the view when the Button is pressed<br />
                     If you don't understand how this is made, read Swift variables, Connect Storyboard with class<br />
-                    {/* <img src={img} width={"60%"} height={"40%"} alt="" /> */}
+                    <img src={"https://training.aizero.com.au/assets/images/apple/Project_Button_example.jpg"} width={"60%"} height={"40%"} alt="" />
                 </Typography>
             </div>
         )

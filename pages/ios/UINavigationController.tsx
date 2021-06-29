@@ -29,11 +29,11 @@ export default function UINavigationController() {
                 </Typography>
                 <Typography className={style.textColor} paragraph>
                     To create a UINavigationController, open storyboard and add NavigationController<br />
-                    <img src={'../../public/assets/images/apple/choose_nc.jpg'} width={"60%"} height={"40%"} alt="" /><br />
+                    <img src={"https://training.aizero.com.au/assets/images/apple/choose_nc.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                     When the UINavigationController is created, it has a UITableViewController as default view controller called as "root view controller"<br />
-                    <img src={'../../public/assets/images/apple/nc_added.jpg'} width={"60%"} height={"40%"} alt="" /><br />
+                    <img src={"https://training.aizero.com.au/assets/images/apple/nc_added.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                     Of course you can change the default view controller by drug and drop from NavigationController and choose "root view controller"<br />
-                    <img src={'../../public/assets/images/apple/nc_change_default.jpg'} width={"60%"} height={"40%"} alt="" /><br />
+                    <img src={"https://training.aizero.com.au/assets/images/apple/nc_change_default.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                 </Typography>
             </div>
         )

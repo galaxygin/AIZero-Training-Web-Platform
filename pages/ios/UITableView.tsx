@@ -28,9 +28,9 @@ export default function UITableView() {
                 <Typography className={style.textColor} paragraph>
                     UITableView is the list view for iOS and one of the most used views in UIKit.<br />
                     We will make something like this<br />
-                    {/* <img src={tvResult} width={"20%"} height={"40%"} alt="" /><br /> */}
+                    <img src={"https://training.aizero.com.au/assets/images/apple/tv_result.jpg"} width={"20%"} height={"40%"} alt="" /><br />
                     To create it, open storyboard and add ViewController if you don't have one<br />
-                    {/* <img src={addVc} width={"60%"} height={"40%"} alt="" /> */}
+                    <img src={"https://training.aizero.com.au/assets/images/apple/Project_add_vc.jpg"} width={"60%"} height={"40%"} alt="" />
                 </Typography>
                 <Typography className={style.textColor} variant="h5" paragraph>
                     Create layout and link to the class
@@ -38,9 +38,9 @@ export default function UITableView() {
                 <Typography className={style.textColor} paragraph>
                     Creating a class named TableViewSample<br />
                     ※If you don't know how to do it, see the previous sessions.<br />
-                    {/* <img src={addTv} width={"60%"} height={"40%"} alt="" /><br /> */}
-                    {/* <img src={tvAdded} width={"60%"} height={"40%"} alt="" /><br /> */}
-                    {/* <img src={tvLinked} width={"60%"} height={"40%"} alt="" /><br /> */}
+                    <img src={"https://training.aizero.com.au/assets/images/apple/Project_add_tableview.jpg"} width={"60%"} height={"40%"} alt="" /><br />
+                    <img src={"https://training.aizero.com.au/assets/images/apple/Project_tv_added.jpg"} width={"60%"} height={"40%"} alt="" /><br />
+                    <img src={"https://training.aizero.com.au/assets/images/apple/Project_tv_linked.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                 </Typography>
                 <Typography className={style.textColor} variant="h5" paragraph>
                     Create a UITableViewCell class
@@ -48,11 +48,11 @@ export default function UITableView() {
                 <Typography className={style.textColor} paragraph>
                     Cell class is used as a layout for list items.<br />
                     To create a cell class, right click the file navigator or create file from File menu.<br />
-                    {/* <img src={createFile} width={"60%"} height={"40%"} alt="" /><br /> */}
+                    <img src={"https://training.aizero.com.au/assets/images/apple/Project_create_file.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                     Enter the class name, choose UITableViewCell as subclass and check Also create XIB file<br />
-                    {/* <img src={tvCell} width={"60%"} height={"40%"} alt="" /><br /> */}
+                    <img src={"https://training.aizero.com.au/assets/images/apple/Project_create_tvcell.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                     Open the both class file and XIB file<br />
-                    {/* <img src={tvCellReady} width={"60%"} height={"40%"} alt="" /><br /> */}
+                    <img src={"https://training.aizero.com.au/assets/images/apple/Project_tvcell_created.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                 </Typography>
                 <Typography className={style.textColor} variant="h5" paragraph>
                     Design the layout of the cell and link the view to the cell
@@ -61,13 +61,13 @@ export default function UITableView() {
                     The way to design the layout of the cell is almost same as Storyboard.<br />
                     I placed "ImageView" and "Label" on Cell and adding constraints. You can design your original layout if you want, but don't forget to set constraints to the view.<br />
                     We will adjust the size of the cell later by programatically, thus the layout won't be rendered as expected if the AutoLayout isn't set.<br />
-                    {/* <img src={cvCellSetConstraints} width={"60%"} height={"40%"} alt="" /><br /> */}
+                    <img src={"https://training.aizero.com.au/assets/images/apple/tvcell_set_constraints.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                     If you want to import images, this is the way to do so. Assets.xcassets<br />
-                    {/* <img src={importImage} width={"60%"} height={"40%"} alt="" /><br /> */}
+                    <img src={"https://training.aizero.com.au/assets/images/apple/import_image.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                     Link the view and create function something like this to interact with other class<br />
-                    {/* <img src={tvCellConstraints} width={"60%"} height={"40%"} alt="" /><br /> */}
+                    <img src={"https://training.aizero.com.au/assets/images/apple/tvcell_constraints.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                     Also don't forget to set identifier for cell<br />
-                    {/* <img src={tvCellIdentifier} width={"60%"} height={"40%"} alt="" /><br /> */}
+                    <img src={"https://training.aizero.com.au/assets/images/apple/tvcell_identifier.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                     Now, the cell is ready
                 </Typography>
                 <Typography className={style.textColor} variant="h5" paragraph>
@@ -91,7 +91,7 @@ export default function UITableView() {
                 </Typography>
                 <Typography className={style.textColor} paragraph>
                     Copy and paste the following to BELOW THE CLASS (Must be outside class)<br />
-                    {/* <img src={tvExtension} width={"60%"} height={"40%"} alt="" /><br /> */}
+                    <img src={"https://training.aizero.com.au/assets/images/apple/tv_extension.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                     You should be able to understand what each functions are doing by each name and arguments.<br />
                 </Typography>
                 <Typography className={style.textColor} variant="h5" paragraph>
@@ -121,7 +121,7 @@ export default function UITableView() {
                 </Typography>
                 <Typography className={style.textColor} paragraph>
                     If you were following the exact instructions, you will be able to see this screen when you run the project<br />
-                    {/* <img src={tvResult} width={"20%"} height={"40%"} alt="" /><br /> */}
+                    <img src={"https://training.aizero.com.au/assets/images/apple/tv_result.jpg"} width={"20%"} height={"40%"} alt="" /><br />
                 </Typography>
             </div>
         )

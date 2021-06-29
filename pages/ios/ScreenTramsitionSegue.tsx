@@ -25,14 +25,14 @@ export default function ScreenTransitionSegue() {
                     ・Prepare NavigationController on storyboard and set it as initial ViewController<br />
                     ・Prepare ViewController on storyboard, put Button<br />
                     ・Change the NavigationController's rootViewController to the ViewController you prepared
-                    {/* <img src={initial} width={"60%"} height={"40%"} alt="" /><br /> */}
+                    <img src={"https://training.aizero.com.au/assets/images/apple/segue_initial.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                 </Typography>
                 <Typography className={style.textColor} variant="h5" paragraph>
                     Create a Segue
                 </Typography>
                 <Typography className={style.textColor} paragraph>
                     Creating a Segue is very easy. Drug and drop with pressing Control from the Button to another board. Then select "show".<br />
-                    {/* <img src={createSegue} width={"60%"} height={"40%"} alt="" /><br /> */}
+                    <img src={"https://training.aizero.com.au/assets/images/apple/create_segue.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                     If you choose this way, you don't have to link the Button to the class.
                 </Typography>
                 <Typography className={style.textColor} variant="h5" paragraph>
@@ -40,9 +40,9 @@ export default function ScreenTransitionSegue() {
                 </Typography>
                 <Typography className={style.textColor} paragraph>
                     If you want to pass the value to Segue, you should to set identifier to segue first.<br />
-                    {/* <img src={segue_identifier} width={"60%"} height={"40%"} alt="" /><br /> */}
+                    <img src={"https://training.aizero.com.au/assets/images/apple/segue_identifier.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                     Now, back to the class file. If your class has commented function like this, uncomment it. If it doesn't, define it.<br />
-                    {/* <img src={commented} width={"60%"} height={"40%"} alt="" /><br /> */}
+                    <img src={"https://training.aizero.com.au/assets/images/apple/commented_navigation.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                 </Typography>
                 <Typography className={style.textColor} paragraph>
                     Write the following inside prepare()<br />
@@ -51,7 +51,7 @@ export default function ScreenTransitionSegue() {
                 </Typography>
                 <Typography className={style.textColor} paragraph>
                     If you have created more than 2 segues, you should identify the segue by if clause like this<br />
-                    {/* <img src={segue_prepare} width={"60%"} height={"40%"} alt="" /><br /> */}
+                    <img src={"https://training.aizero.com.au/assets/images/apple/segue_prepare.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                 </Typography>
             </div>
         )

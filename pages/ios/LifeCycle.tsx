@@ -18,9 +18,9 @@ export default function LifeCycle() {
                     Most of the built-in class on UIKit has their own lifecycles depends on how they are going to be used.<br />
                     Images below is from the Apple's website</Typography>
                 <Typography className={style.textColor} variant="h5" paragraph>LifeCycle of iOS</Typography>
-                {/* <img src={ios_lifecycle} width={"40%"} height={"30%"} alt="" /> */}
+                <img src={"https://training.aizero.com.au/assets/images/apple/ios_lifecycle.jpg"} width={"40%"} height={"30%"} alt="" />
                 <Typography className={style.textColor} variant="h5" paragraph>LifeCycle of UIViewController</Typography>
-                {/* <img src={vc_lifecycle} width={"40%"} height={"30%"} alt="" /> */}
+                <img src={"https://training.aizero.com.au/assets/images/apple/vc_lifecycle.jpg"} width={"40%"} height={"30%"} alt="" />
             </div>
         )
     }
