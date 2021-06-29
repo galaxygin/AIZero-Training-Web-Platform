@@ -146,7 +146,7 @@ export const useStyles = makeStyles((theme) => ({
         borderColor: 'silver',
         borderWidth: 1,
         fontSize: 16,
-        height: 30,
+        minHeight: 30,
         minWidth: 300
     },
     sectionDesktop: {

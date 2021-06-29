@@ -5,7 +5,8 @@ import { List, ListItem, Link, ListItemText, Drawer, Divider, Toolbar } from '@m
 const menu = [{ "title": "Get started", "uri": "GetStarted" },
 { "title": "Set up environment", "uri": "SetUp-Environment" },
 { "title": "Create a new Project", "uri": "CreateProject" },
-{ "title": "Run the project in dev mode", "uri": "RunTheProjectInDevMode" }]
+{ "title": "Run the project in dev mode", "uri": "RunTheProjectInDevMode" },
+{ "title": "Project Structure", "uri": "ProjectStructure" }]
 
 export default function WebDrawer() {
     const styles = useStyles()

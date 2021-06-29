@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useStyles } from "../public/assets/styles/styles.web";
-import { Typography, TextField, Button, Link, CircularProgress } from "@material-ui/core";
+import { Typography, TextField, Button, Link, CircularProgress, CssBaseline } from "@material-ui/core";
 import { signInWithEmail } from "../api/request/AuthRequest";
 import Alert from '@material-ui/lab/Alert';
 import Header from './Header';
@@ -37,6 +37,7 @@ export default function PageCore({ content, header = <Header title="Sign in" /> 
 
     if (loading) {
         return <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', backgroundColor: 'black' }}>
+            {header}
             <CircularProgress size={40} />
             <Typography className={styles.textColor} variant="h5">Checking credentials</Typography>
         </div>
@@ -49,6 +50,7 @@ export default function PageCore({ content, header = <Header title="Sign in" /> 
         } else {
             return <div style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column", flex: 1 }}>
                 {header}
+                <CssBaseline />
                 <Typography className={styles.textColor} variant="h3" style={{ marginTop: 100 }} paragraph>
                     AIZero Training
                 </Typography>
