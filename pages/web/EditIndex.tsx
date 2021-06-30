@@ -33,7 +33,7 @@ export default function EditIndex() {
                     If you want to check how the changes are effected, run the dev server from Terminal<br />
                     <input readOnly className={style.cmdInput} value={"yarn next dev"} /><br />
                     and access<br />
-                    <input readOnly className={style.cmdInput} value={"localhost:3000/{name of the page if not index}"} style={{ width: 350 }} /><br />
+                    <input readOnly className={style.cmdInput} value={"localhost:3000/{name of the page if not index}"} /><br />
                 </Typography>
                 <Typography className={style.textColor} variant="h4" paragraph>Next</Typography>
                 <Typography className={style.textColor}>

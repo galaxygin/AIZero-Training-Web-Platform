@@ -146,8 +146,18 @@ export const useStyles = makeStyles((theme) => ({
         borderColor: 'silver',
         borderWidth: 1,
         fontSize: 16,
-        minHeight: 30,
-        minWidth: 300
+        height: 30,
+        width: 400
+    },
+    editorStyle: {
+        color: 'lime',
+        backgroundColor: 'black',
+        borderColor: 'silver',
+        borderWidth: 1,
+        fontSize: 16,
+        minHeight: 100,
+        minWidth: 600,
+        maxWidth: '100%'
     },
     sectionDesktop: {
         display: 'none',

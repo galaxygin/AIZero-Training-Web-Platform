@@ -18,7 +18,7 @@ export default function CreateProject() {
                     <input readOnly className={style.cmdInput} value="cd {directory}" /><br />
                     *In my case, I do "cd Desktop/Github"<br /><br />
                     This command create a base of project named "practice" using <a href="https://nextjs.org/" target="_blank">Next.js</a><br />
-                    <input readOnly className={style.cmdInput} value="npx create-next-app --ts next-practice" style={{ width: 300 }} /><br />
+                    <input readOnly className={style.cmdInput} value="npx create-next-app --ts next-practice" /><br />
                     *npx is not wrong command<br />
                     *You can replace the "next-practice" with your prefered name<br />
                     *The terminal app will ask you to install "create-next-app" if it's not installed on your PC. Press "y"<br /><br />
