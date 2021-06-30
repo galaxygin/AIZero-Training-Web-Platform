@@ -6,7 +6,7 @@ import PageCore from './PageCore'
 import { signOut } from '../api/request/AuthRequest';
 
 export default function AppIndex() {
-    const style = useStyles()
+    const styles = useStyles()
     const [anchorEl, setAnchorEl] = useState(null);
     const [innerWidth, setInnerWidth] = useState(0)
 
@@ -46,10 +46,10 @@ export default function AppIndex() {
             <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", backgroundColor: "#191970" }}>
                 <div style={{ flex: 1, display: "flex", flexDirection: "row", alignItems: "center", width: innerWidth - 100 }}>
                     <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-                        <Typography className={style.textColor} variant="h3" style={{ marginTop: 32 }} paragraph>
+                        <Typography className={styles.textColor} variant="h3" style={{ marginTop: 32 }} paragraph>
                             AIZero Training
                         </Typography>
-                        <Typography className={style.textColor} paragraph>
+                        <Typography className={styles.textColor} paragraph>
                             A training platform for people works for AIZero
                         </Typography>
                     </div>

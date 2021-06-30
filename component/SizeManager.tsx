@@ -1,4 +1,4 @@
 export function calculateEditorHeight(lines: number) {
-    const baseHeight = 20
+    const baseHeight = 21
     return baseHeight * lines
 }

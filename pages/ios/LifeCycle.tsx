@@ -6,20 +6,20 @@ import { Typography } from '@material-ui/core'
 import PageBase from '../PageBase'
 
 export default function LifeCycle() {
-    const style = useStyles()
+    const styles = useStyles()
 
     function content() {
         return (
             <div>
-                <Typography className={style.textColor} variant="h3" paragraph >
+                <Typography className={styles.textColor} variant="h3" paragraph >
                     LifeCycle
                 </Typography>
-                <Typography className={style.textColor} paragraph>iOS has it's own lifecycles. LifeCycle is the functions called automatically when the event happens.<br />
+                <Typography className={styles.textColor} paragraph>iOS has it's own lifecycles. LifeCycle is the functions called automatically when the event happens.<br />
                     Most of the built-in class on UIKit has their own lifecycles depends on how they are going to be used.<br />
                     Images below is from the Apple's website</Typography>
-                <Typography className={style.textColor} variant="h5" paragraph>LifeCycle of iOS</Typography>
+                <Typography className={styles.textColor} variant="h5" paragraph>LifeCycle of iOS</Typography>
                 <img src={"https://training.aizero.com.au/assets/images/apple/ios_lifecycle.jpg"} width={"40%"} height={"30%"} alt="" />
-                <Typography className={style.textColor} variant="h5" paragraph>LifeCycle of UIViewController</Typography>
+                <Typography className={styles.textColor} variant="h5" paragraph>LifeCycle of UIViewController</Typography>
                 <img src={"https://training.aizero.com.au/assets/images/apple/vc_lifecycle.jpg"} width={"40%"} height={"30%"} alt="" />
             </div>
         )

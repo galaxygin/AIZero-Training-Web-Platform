@@ -4,13 +4,13 @@ import { useStyles } from '../../public/assets/styles/styles.web'
 import PageBase from '../PageBase'
 
 export default function EditIndex() {
-    const style = useStyles()
+    const styles = useStyles()
 
     function renderContent() {
         return (
             <div>
-                <Typography className={style.textColor} variant="h3" paragraph >Edit index.tsx</Typography>
-                <Typography className={style.textColor} paragraph >
+                <Typography className={styles.textColor} variant="h3" paragraph >Edit index.tsx</Typography>
+                <Typography className={styles.textColor} paragraph >
                     We will now open the project with VS Code and edit index.tsx:<br />
                     *Replace all steps with your editor if you don't use VS Code.<br /><br />
                     Open the VS Code<br />
@@ -26,17 +26,17 @@ export default function EditIndex() {
                 </Typography>
                 <p style={{ fontWeight: "bold", color: "white", borderColor: "red", fontSize: 18 }}>On function based development, returning the div code will show a page<br />
                     So return the code you are going to put into the {`<body>`}</p><br />
-                <Typography className={style.textColor} paragraph>
+                <Typography className={styles.textColor} paragraph>
                     Also you can see the imports on top of the file. React usually use "import" to use other file. Most of them are TS or JS file.<br />
                     You can import the functions or modules inside the project folder. Modules are need to be installed via "yarn" or "npm" and installed packages are listed on package.json.<br />
                     The functions will be usable by exporting them. Most of the usages are RestAPI.<br /><br />
                     If you want to check how the changes are effected, run the dev server from Terminal<br />
-                    <input readOnly className={style.cmdInput} value={"yarn next dev"} /><br />
+                    <input readOnly className={styles.cmdInput} value={"yarn next dev"} /><br />
                     and access<br />
-                    <input readOnly className={style.cmdInput} value={"localhost:3000/{name of the page if not index}"} /><br />
+                    <input readOnly className={styles.cmdInput} value={"localhost:3000/{name of the page if not index}"} /><br />
                 </Typography>
-                <Typography className={style.textColor} variant="h4" paragraph>Next</Typography>
-                <Typography className={style.textColor}>
+                <Typography className={styles.textColor} variant="h4" paragraph>Next</Typography>
+                <Typography className={styles.textColor}>
                     We will integrate Material-UI on next session
                 </Typography>
             </div>

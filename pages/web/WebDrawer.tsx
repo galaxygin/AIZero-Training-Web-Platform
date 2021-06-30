@@ -9,7 +9,14 @@ const menu = [{ "title": "Get started", "uri": "GetStarted" },
 { "title": "Project Structure", "uri": "ProjectStructure" },
 { "title": "Edit index.tsx", "uri": "EditIndex" },
 { "title": "Setup Material-UI", "uri": "SetupMUI" },
-{ "title": "How to design a page", "uri": "HowToDesignPage" }]
+{ "title": "How to design a page", "uri": "HowToDesignPage" },
+{ "title": "useState()", "uri": "UseState" },
+{ "title": "useEffect()", "uri": "UseEffect" },
+{ "title": "function()", "uri": "Function" },
+{ "title": "Page routing", "uri": "PageRouting" },
+{ "title": "List", "uri": "List" },
+{ "title": "Grid", "uri": "Grid" },
+{ "title": "API", "uri": "api" }]
 
 export default function WebDrawer() {
     const styles = useStyles()

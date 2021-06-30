@@ -9,19 +9,19 @@ import { Typography } from '@material-ui/core'
 import PageBase from '../PageBase'
 
 export default function IOSCreateProject() {
-    const style = useStyles()
+    const styles = useStyles()
 
     function content() {
         return (
             <div>
-                <Typography className={style.textColor} variant="h3" paragraph>
+                <Typography className={styles.textColor} variant="h3" paragraph>
                     Create a new project
                 </Typography>
-                <Typography className={style.textColor} paragraph>
+                <Typography className={styles.textColor} paragraph>
                     Now, open the Xcode. To create a new project, go to File - New - Project.<br />
                     Then you will see something like this
                 </Typography>
-                <Typography className={style.textColor}>On Xcode 12. Choose App ※Choose the first one if the design is different<br />
+                <Typography className={styles.textColor}>On Xcode 12. Choose App ※Choose the first one if the design is different<br />
                     <img src={"https://training.aizero.com.au/assets/images/apple/Project_template.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                     Project info setup. Input something like this<br />
                     <img src={"https://training.aizero.com.au/assets/images/apple/Project_info_setup.jpg"} width={"60%"} height={"40%"} alt="" /><br />
@@ -39,8 +39,8 @@ export default function IOSCreateProject() {
                     To edit the design and layout of the screen, open Main.storyboard<br />
                     <img src={"https://training.aizero.com.au/assets/images/apple/Project_storyboard.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                 </Typography>
-                <Typography className={style.textColor} variant="h4" paragraph>Next step</Typography>
-                <Typography className={style.textColor}>Learn Swift variables</Typography>
+                <Typography className={styles.textColor} variant="h4" paragraph>Next step</Typography>
+                <Typography className={styles.textColor}>Learn Swift variables</Typography>
             </div>
         )
     }

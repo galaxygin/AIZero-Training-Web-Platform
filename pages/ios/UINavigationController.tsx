@@ -7,27 +7,27 @@ import { Typography } from '@material-ui/core'
 import PageBase from '../PageBase'
 
 export default function UINavigationController() {
-    const style = useStyles()
+    const styles = useStyles()
 
     function content() {
         return (
             <div>
-                <Typography className={style.textColor} variant="h3" paragraph>
+                <Typography className={styles.textColor} variant="h3" paragraph>
                     UINavigationController
                 </Typography>
-                <Typography className={style.textColor} paragraph>
+                <Typography className={styles.textColor} paragraph>
                     UINavigationController works for managing views(screens) connected with controller.
                 </Typography>
-                <Typography className={style.textColor} paragraph>
+                <Typography className={styles.textColor} paragraph>
                     We use this for screen transitions like<br />
                     ・Navigate to other screen<br />
                     ・Go back to previous screen<br />
                     ・Go back to root screen<br />
                 </Typography>
-                <Typography className={style.textColor} variant="h5" paragraph>
+                <Typography className={styles.textColor} variant="h5" paragraph>
                     Create UINavigationController
                 </Typography>
-                <Typography className={style.textColor} paragraph>
+                <Typography className={styles.textColor} paragraph>
                     To create a UINavigationController, open storyboard and add NavigationController<br />
                     <img src={"https://training.aizero.com.au/assets/images/apple/choose_nc.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                     When the UINavigationController is created, it has a UITableViewController as default view controller called as "root view controller"<br />

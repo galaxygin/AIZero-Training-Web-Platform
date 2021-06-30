@@ -4,13 +4,13 @@ import { useStyles } from '../../public/assets/styles/styles.web'
 import PageBase from '../PageBase'
 
 export default function SetupMUI() {
-    const style = useStyles()
+    const styles = useStyles()
 
     function renderContent() {
         return (
             <div>
-                <Typography className={style.textColor} variant="h3" paragraph >Setup Material-UI</Typography>
-                <Typography className={style.textColor} paragraph >
+                <Typography className={styles.textColor} variant="h3" paragraph >Setup Material-UI</Typography>
+                <Typography className={styles.textColor} paragraph >
                     We will setup the Material-UI with Server Side Rendering enabled:<br />
                     SSR enabled sample is <a href="https://github.com/mui-org/material-ui/tree/master/examples/nextjs" target="_blank">here</a> and we will do the same thing.<br /><br />
                     First, replace the content of _app.tsx to <a href="https://github.com/mui-org/material-ui/blob/master/examples/nextjs/pages/_app.js" target="_blank">this</a><br />
@@ -24,8 +24,8 @@ export default function SetupMUI() {
                     <img src={"https://training.aizero.com.au/assets/images/web/theme.png"} width={"60%"} height={"40%"} alt="" /><br /><br />
                     After you've done these, the Material-UI should be ready for SSR
                 </Typography>
-                <Typography className={style.textColor} variant="h4" paragraph>Next</Typography>
-                <Typography className={style.textColor}>
+                <Typography className={styles.textColor} variant="h4" paragraph>Next</Typography>
+                <Typography className={styles.textColor}>
                     We will start designing the page using MUI
                 </Typography>
             </div>

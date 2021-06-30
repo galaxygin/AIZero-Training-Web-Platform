@@ -5,21 +5,21 @@ import { Typography } from '@material-ui/core'
 import PageBase from '../PageBase'
 
 export default function IOSScreenTransitionMode() {
-    const style = useStyles()
+    const styles = useStyles()
 
     function content() {
         return (
             <div>
-                <Typography className={style.textColor} variant="h3" paragraph>
+                <Typography className={styles.textColor} variant="h3" paragraph>
                     Screen Transition Mode
                 </Typography>
-                <Typography className={style.textColor} paragraph>
+                <Typography className={styles.textColor} paragraph>
                     iOS has some styles of screen transition.
                 </Typography>
-                <Typography className={style.textColor} variant="h5" paragraph>
+                <Typography className={styles.textColor} variant="h5" paragraph>
                     Show
                 </Typography>
-                <Typography className={style.textColor} paragraph>
+                <Typography className={styles.textColor} paragraph>
                     Adding a screen as stack of the connected NavigationController.<br />
                     The most used way for screen transaction.<br />
                     Equilvant to navigate of Android Jetpack Navigation<br /><br />
@@ -28,10 +28,10 @@ export default function IOSScreenTransitionMode() {
                     {`//`}Go back to previous screen<br />
                     self.navigationController.popViewController()<br />
                 </Typography>
-                <Typography className={style.textColor} variant="h5" paragraph>
+                <Typography className={styles.textColor} variant="h5" paragraph>
                     Present
                 </Typography>
-                <Typography className={style.textColor} paragraph>
+                <Typography className={styles.textColor} paragraph>
                     Presenting a screen as new stack. The presented view controller doesn't have any relation with the origin.<br /><br />
                     {`//`}Present a view<br />
                     self.present(view, animated: true, completion: nil)<br />
@@ -40,16 +40,16 @@ export default function IOSScreenTransitionMode() {
                     ※If the presented view controller is not connected with NavigationController, the "Show" won't work properly.<br />
                     ※The pop methods doesn't work on the root of the presented screen.
                 </Typography>
-                <Typography className={style.textColor} variant="h5" paragraph>
+                <Typography className={styles.textColor} variant="h5" paragraph>
                     Show Detail
                 </Typography>
-                <Typography className={style.textColor} paragraph>
+                <Typography className={styles.textColor} paragraph>
                     This mode is used for particular view, such as SplitView. It's easier if you imagine the Setting app op the app. That's made with SplitView, show the list of columns on the left and showing detail screen on the right.
                 </Typography>
-                <Typography className={style.textColor} variant="h5" paragraph>
+                <Typography className={styles.textColor} variant="h5" paragraph>
                     Prepare the environment
                 </Typography>
-                <Typography className={style.textColor} paragraph>
+                <Typography className={styles.textColor} paragraph>
                     You don't have to do this, but preparing environment helps you better understanding<br />
                     ・Prepare a View controller linked with NavigationController<br />
                     ・Make a way to access to the NavigationController or set it as initial view controller<br />

@@ -18,32 +18,32 @@ import { Typography } from '@material-ui/core'
 import PageBase from '../PageBase'
 
 export default function UICollectionView() {
-    const style = useStyles()
+    const styles = useStyles()
 
     function content() {
         return (
             <div>
-                <Typography className={style.textColor} variant="h3" paragraph>
+                <Typography className={styles.textColor} variant="h3" paragraph>
                     UICollectionView
                 </Typography>
-                <Typography className={style.textColor} paragraph>
+                <Typography className={styles.textColor} paragraph>
                     UICollection is the grid view and it's implementatuon method is very similar to TableView.<br />
                     We will make something like this<br />
                     <img src={"https://training.aizero.com.au/assets/images/apple/cv_result.jpg"} width={"20%"} height={"40%"} alt="" /><br />
                 </Typography>
-                <Typography className={style.textColor} variant="h5" paragraph>
+                <Typography className={styles.textColor} variant="h5" paragraph>
                     Create layout and link to the class
                 </Typography>
-                <Typography className={style.textColor} paragraph>
+                <Typography className={styles.textColor} paragraph>
                     Creating a class named CollectionViewSample<br />
                     ※If you don't know how to do it, see the previous sessions.<br />
                     <img src={"https://training.aizero.com.au/assets/images/apple/choose_cv.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                     <img src={"https://training.aizero.com.au/assets/images/apple/cv_linked.jpg"} width={"60%"} height={"40%"} alt="" />
                 </Typography>
-                <Typography className={style.textColor} variant="h5" paragraph>
+                <Typography className={styles.textColor} variant="h5" paragraph>
                     Create a UICollectionViewCell class
                 </Typography>
-                <Typography className={style.textColor} paragraph>
+                <Typography className={styles.textColor} paragraph>
                     Cell class is used as a layout for collection items.<br />
                     To create a cell class, right click the file navigator or create file from File menu.<br />
                     <img src={"https://training.aizero.com.au/assets/images/apple/Project_create_file.jpg"} width={"60%"} height={"40%"} alt="" /><br />
@@ -52,10 +52,10 @@ export default function UICollectionView() {
                     Open the both class file and XIB file<br />
                     <img src={"https://training.aizero.com.au/assets/images/apple/cvcell_created.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                 </Typography>
-                <Typography className={style.textColor} variant="h5" paragraph>
+                <Typography className={styles.textColor} variant="h5" paragraph>
                     Design the layout of the cell and link the view to the cell
                 </Typography>
-                <Typography className={style.textColor} paragraph>
+                <Typography className={styles.textColor} paragraph>
                     The way to design the layout of the cell is almost same as Storyboard.<br />
                     But when the Collection Cell is created, it don't have the basic "View". So let's add "View" with constraints<br />
                     <img src={"https://training.aizero.com.au/assets/images/apple/cvcell_setup_view.jpg"} width={"60%"} height={"40%"} alt="" /><br />
@@ -72,34 +72,34 @@ export default function UICollectionView() {
                     <img src={"https://training.aizero.com.au/assets/images/apple/cvcell_view_linked.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                     Now, the cell is ready
                 </Typography>
-                <Typography className={style.textColor} variant="h5" paragraph>
+                <Typography className={styles.textColor} variant="h5" paragraph>
                     Setup the CollectionView
                 </Typography>
-                <Typography className={style.textColor} paragraph>
+                <Typography className={styles.textColor} paragraph>
                     UICollection requires some setups after linking<br />
                     ・delegate: Implementing callbacks for the list actions<br />
                     ・dataSource: Returning the values to setup how the list looks like<br />
                     ・register: Registering the Cell class made with NIB. ※There are other way to do this, but I prefer this way<br />
                 </Typography>
-                <Typography className={style.textColor} paragraph>
+                <Typography className={styles.textColor} paragraph>
                     Now, define this under collectionView<br />
                     var items = [String]()
                 </Typography>
-                <Typography className={style.textColor} paragraph>
+                <Typography className={styles.textColor} paragraph>
                     Then define the following inside viewDidLoad().<br />
                     tableView.delegate = self ※This will show error at the moment<br />
                     tableView.dataSource = self ※This will show error at the moment<br />
                     tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")<br />
                 </Typography>
-                <Typography className={style.textColor} paragraph>
+                <Typography className={styles.textColor} paragraph>
                     Copy and paste the following to BELOW THE CLASS (Must be outside class)<br />
                     <img src={"https://training.aizero.com.au/assets/images/apple/cv_extension.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                     You should be able to understand what each functions are doing by each name and arguments.<br />
                 </Typography>
-                <Typography className={style.textColor} variant="h5" paragraph>
+                <Typography className={styles.textColor} variant="h5" paragraph>
                     Do something when the list item is selected
                 </Typography>
-                <Typography className={style.textColor} paragraph>
+                <Typography className={styles.textColor} paragraph>
                     To do something when the item is selected, write the code inside didSelectRowAt in UICollectionViewDelegateFlowLayout<br /><br />
                     To get the index of selected item<br />
                     let index = indexPath.row<br />
@@ -108,27 +108,27 @@ export default function UICollectionView() {
                     Print selected item on console<br />
                     print(items[indexPath.row])
                 </Typography>
-                <Typography className={style.textColor} variant="h5" paragraph>
+                <Typography className={styles.textColor} variant="h5" paragraph>
                     Set some the data
                 </Typography>
-                <Typography className={style.textColor} paragraph>
+                <Typography className={styles.textColor} paragraph>
                     The CollectionView is almost done, but we didn't add the data to show. So let's add it.<br />
                     Add something like this to inside viewDidLoad()<br />
                     items.append("Aizero")<br />
                     items.append("iTake")<br />
                     items.append("Training")<br />
                 </Typography>
-                <Typography className={style.textColor} variant="h5" paragraph>
+                <Typography className={styles.textColor} variant="h5" paragraph>
                     Run the project
                 </Typography>
-                <Typography className={style.textColor} paragraph>
+                <Typography className={styles.textColor} paragraph>
                     If you were following the exact instructions, you will be able to see this screen when you run the project<br />
                     <img src={"https://training.aizero.com.au/assets/images/apple/cv_result.jpg"} width={"20%"} height={"40%"} alt="" /><br />
                 </Typography>
-                <Typography className={style.textColor} variant="h5" paragraph>
+                <Typography className={styles.textColor} variant="h5" paragraph>
                     Horizontal collection
                 </Typography>
-                <Typography className={style.textColor} paragraph>
+                <Typography className={styles.textColor} paragraph>
                     To configure the collection as horizontal, set scroll direction to "Horizontal"<br />
                     <img src={"https://training.aizero.com.au/assets/images/apple/cv_horizontal_config.jpg"} width={"60%"} height={"40%"} alt="" /><br />
                 </Typography>
