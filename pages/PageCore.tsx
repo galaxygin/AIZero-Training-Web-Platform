@@ -5,6 +5,7 @@ import { signInWithEmail } from "../api/request/AuthRequest";
 import Alert from '@material-ui/lab/Alert';
 import Header from './Header';
 import { Auth } from "../FirebaseManager";
+import { useCookies } from "react-cookie";
 
 export default function PageCore({ content, header = <Header title="Sign in" /> }) {
     const styles = useStyles()
@@ -13,6 +14,7 @@ export default function PageCore({ content, header = <Header title="Sign in" /> 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [errorMsg, setErrorMsg] = useState(null)
+    const [cookies, setCookie] = useCookies(['uid'])
 
     Auth.onAuthStateChanged(user => {
         if (user) {
@@ -25,6 +27,7 @@ export default function PageCore({ content, header = <Header title="Sign in" /> 
 
     function signIn() {
         signInWithEmail(email, password).then(result => {
+            setCookie('uid', result.user.uid)
             window.location.reload()
         }).catch(error => setErrorMsg(error.message))
     }

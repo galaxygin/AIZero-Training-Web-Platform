@@ -9,4 +9,7 @@ module.exports = {
             loader: 'url-loader?limit=100000'
         }]
     },
+    images: {
+        domains: ['assets.vercel.com', "firebasestorage.googleapis.com"],
+    },
 }

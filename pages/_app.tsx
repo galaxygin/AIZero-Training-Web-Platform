@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { ThemeProvider } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
 import theme from '../public/assets/styles/theme';
+import { CookiesProvider } from 'react-cookie'
 
 export default function MyApp(props: { Component: any; pageProps: any; }) {
   const { Component, pageProps } = props
@@ -15,10 +16,12 @@ export default function MyApp(props: { Component: any; pageProps: any; }) {
   }, [])
   return (
     <React.Fragment>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <CookiesProvider>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </CookiesProvider>
     </React.Fragment>
   )
 }

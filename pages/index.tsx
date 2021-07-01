@@ -1,19 +1,31 @@
 import React, { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
+import Image from 'next/image'
 import { useStyles } from '../public/assets/styles/styles.web'
 import { Typography, Grid, Paper, Link, IconButton, Menu, MenuItem } from '@material-ui/core'
 import { AccountCircle } from '@material-ui/icons';
 import PageCore from './PageCore'
 import { signOut } from '../api/request/AuthRequest';
+import { useCookies } from 'react-cookie'
+import { getUserInfo } from '../api/request/UserRequest'
 
 export default function AppIndex() {
     const styles = useStyles()
+    const router = useRouter()
     const [anchorEl, setAnchorEl] = useState(null);
     const [innerWidth, setInnerWidth] = useState(0)
+    const [thumbnail_url, setThumbnailUrl] = useState('')
+    const [cookies, setCookie, removeCookie] = useCookies(['uid'])
 
     const isMenuOpen = Boolean(anchorEl);
 
     useEffect(() => {
         setInnerWidth(window.innerWidth)
+        if (cookies.uid) {
+            getUserInfo(cookies.uid).then(doc => {
+                setThumbnailUrl(doc.data().thumbnail_url)
+            })
+        }
     }, [])
 
     const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -35,7 +47,9 @@ export default function AppIndex() {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
+            <MenuItem onClick={() => router.push("account")}>Account</MenuItem>
             <MenuItem onClick={() => signOut().then(() => {
+                removeCookie('uid')
                 window.location.href = "/"
             })}>Log out</MenuItem>
         </Menu>
@@ -59,8 +73,9 @@ export default function AppIndex() {
                         aria-haspopup="true"
                         onClick={handleProfileMenuOpen}
                         color="inherit"
+                        style={{ borderRadius: 50 }}
                     >
-                        <AccountCircle style={{ width: 100, height: 100, backgroundColor: 'white', borderRadius: 50 }} />
+                        {(thumbnail_url == "") ? <AccountCircle style={{ width: 100, height: 100, backgroundColor: 'white', borderRadius: 50 }} /> : <Image src={thumbnail_url} width={100} height={100} />}
                     </IconButton>
                 </div>
                 <Grid container style={{ marginTop: 32, marginBottom: 32 }} justify="center" >
