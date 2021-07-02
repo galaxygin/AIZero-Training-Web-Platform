@@ -28,14 +28,6 @@ export default function AppIndex() {
         }
     }, [])
 
-    const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleMenuClose = () => {
-        setAnchorEl(null);
-    };
-
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
         <Menu
@@ -45,7 +37,7 @@ export default function AppIndex() {
             keepMounted
             transformOrigin={{ vertical: 'top', horizontal: 'right' }}
             open={isMenuOpen}
-            onClose={handleMenuClose}
+            onClose={() => setAnchorEl(null)}
         >
             <MenuItem onClick={() => router.push("account")}>Account</MenuItem>
             <MenuItem onClick={() => signOut().then(() => {
@@ -71,7 +63,7 @@ export default function AppIndex() {
                         edge="end"
                         aria-label="account of current user"
                         aria-haspopup="true"
-                        onClick={handleProfileMenuOpen}
+                        onClick={e => e.currentTarget}
                         color="inherit"
                         style={{ borderRadius: 50 }}
                     >

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router'
+import Image from 'next/image';
 import { Link, Select, MenuItem, Theme, IconButton, Menu, AppBar, Toolbar, Typography } from '@material-ui/core';
 import { AccountCircle } from '@material-ui/icons';
 import { createStyles, makeStyles } from '@material-ui/styles';
@@ -9,17 +11,27 @@ import SwiftUIDrawer from './swiftui/SwiftUIDrawer'
 import AndroidDrawer from './android/AndroidDrawer'
 import { signOut } from '../api/request/AuthRequest';
 import PageCore from './PageCore';
+import { useCookies } from 'react-cookie';
+import { getUserInfo } from '../api/request/UserRequest';
 
 export default function PageBase({ content, header = <Header />, selectedPlatform = "ios" }) {
     const drawerStyle = drawerStyles()
+    const router = useRouter()
     const [platform, changePlatform] = useState(selectedPlatform)
     const [anchorEl, setAnchorEl] = useState(null);
+    const [thumbnail_url, setThumbnailUrl] = useState('')
+    const [cookies, setCookie, removeCookie] = useCookies(['uid'])
 
     const isMenuOpen = Boolean(anchorEl);
 
     useEffect(() => {
         if (selectedPlatform != "ios") {
             changeDrawer(selectedPlatform)
+        }
+        if (cookies.uid) {
+            getUserInfo(cookies.uid).then(doc => {
+                setThumbnailUrl(doc.data().thumbnail_url)
+            })
         }
     }, [])
 
@@ -34,7 +46,9 @@ export default function PageBase({ content, header = <Header />, selectedPlatfor
             open={isMenuOpen}
             onClose={() => setAnchorEl(null)}
         >
+            <MenuItem onClick={() => router.push("account")}>Account</MenuItem>
             <MenuItem onClick={() => signOut().then(() => {
+                removeCookie('uid')
                 window.location.href = "/"
             })}>Log out</MenuItem>
         </Menu>
@@ -82,7 +96,7 @@ export default function PageBase({ content, header = <Header />, selectedPlatfor
                             onClick={e => setAnchorEl(e.currentTarget)}
                             color="inherit"
                         >
-                            <AccountCircle />
+                            {(thumbnail_url == "") ? <AccountCircle style={{ width: 36, height: 36, backgroundColor: 'white', borderRadius: 12 }} /> : <Image src={thumbnail_url} width={36} height={36} />}
                         </IconButton>
                     </Toolbar>
                 </AppBar>
