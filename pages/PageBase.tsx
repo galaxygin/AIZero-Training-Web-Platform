@@ -46,7 +46,7 @@ export default function PageBase({ content, header = <Header />, selectedPlatfor
             open={isMenuOpen}
             onClose={() => setAnchorEl(null)}
         >
-            <MenuItem onClick={() => router.push("account")}>Account</MenuItem>
+            <MenuItem onClick={() => router.push("../account")}>Account</MenuItem>
             <MenuItem onClick={() => signOut().then(() => {
                 removeCookie('uid')
                 window.location.href = "/"

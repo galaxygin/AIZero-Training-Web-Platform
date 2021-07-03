@@ -62,7 +62,10 @@ export default function Account() {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={() => changingThumb(true)}>Update thumbnail</MenuItem>
+            <MenuItem onClick={() => {
+                handleMenuClose()
+                changingThumb(true)
+            }}>Update thumbnail</MenuItem>
         </Menu>
     );
 
@@ -110,7 +113,11 @@ export default function Account() {
                         <TextField style={{ backgroundColor: 'white' }} type="password" onChange={e => setCPW(e.target.value)} /><br />
                     </DialogContent>
                     <DialogActions style={{ backgroundColor: '#454545', color: 'white' }}>
-                        <Button disabled={validate()} variant="contained" onClick={() => getUser().updatePassword(newPW).then(() => changingPW(false)).catch(error => setErrorPWMsg(error.message))} color="primary" style={{ margin: 16, backgroundColor: 'red' }}>
+                        <Button disabled={validate()} variant="contained" onClick={() => getUser().updatePassword(newPW).then(() => {
+                            setPW("")
+                            setCPW("")
+                            changingPW(false)
+                        }).catch(error => setErrorPWMsg(error.message))} color="primary" style={{ margin: 16, backgroundColor: 'red' }}>
                             Update
                         </Button>
                     </DialogActions>
@@ -126,10 +133,11 @@ export default function Account() {
                         <img src={newThumb} width={100} height={100} alt={""} />
                     </DialogContent>
                     <DialogActions style={{ backgroundColor: '#454545', color: 'white' }}>
-                        {(thumbLoading) ? <CircularProgress /> : <Button disabled={!newThumb} variant="contained" onClick={() => {
+                        {(thumbLoading) ? <CircularProgress style={{ color: 'white' }} /> : <Button disabled={!newThumb} variant="contained" onClick={() => {
                             setThumbLoading(true)
                             uploadThumbnail(newThumb).then(url => {
                                 setThumbnailUrl(url)
+                                changingThumb(false)
                             }).catch(error => {
                                 setErrorThumbMsg(error.message)
                             }).finally(() => setThumbLoading(false))
