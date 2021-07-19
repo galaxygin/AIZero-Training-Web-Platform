@@ -16,7 +16,9 @@ const menu = [{ "title": "Get started", "uri": "GetStarted" },
 { "title": "Page routing", "uri": "PageRouting" },
 { "title": "List", "uri": "List" },
 { "title": "Grid", "uri": "Grid" },
-{ "title": "API", "uri": "api" }]
+{ "title": "App Bar", "uri": "AppBar" },
+{ "title": "RestAPI", "uri": "RestAPI" },
+{ "title": "Setup Firebase", "uri": "SetupFirebase" }]
 
 export default function WebDrawer() {
     const styles = useStyles()

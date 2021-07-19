@@ -1,6 +1,5 @@
 import React, { useState, useEffect, BaseSyntheticEvent } from "react";
 import { useStyles } from "../public/assets/styles/styles.web";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { Button, Typography, TextField, Menu, MenuItem, Dialog, DialogTitle, DialogContent, DialogActions, IconButton, CircularProgress } from "@material-ui/core";
 import { AccountCircle, Edit, Done, ChevronLeft } from '@material-ui/icons';
@@ -170,7 +169,7 @@ export default function Account() {
                         onClick={handleThumbMenuOpen}
                         color="inherit"
                     >
-                        {(thumbnail_url == "") ? <AccountCircle style={{ width: 100, height: 100, backgroundColor: 'white', borderRadius: 50 }} /> : <Image src={thumbnail_url} width={100} height={100} />}
+                        {(thumbnail_url == "") ? <AccountCircle style={{ width: 100, height: 100, backgroundColor: 'white', borderRadius: 50 }} /> : <img src={thumbnail_url} width={100} height={100} style={{ borderRadius: 50 }} />}
                     </IconButton>
                     {(editing) ? <TextField style={{ backgroundColor: 'white' }} variant={"outlined"} value={name} onChange={e => setName(e.target.value)} /> : <Typography className={styles.textColor} variant="h3">{name}</Typography>}
                 </div>

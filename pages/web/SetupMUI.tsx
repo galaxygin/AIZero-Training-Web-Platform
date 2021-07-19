@@ -21,6 +21,7 @@ export default function SetupMUI() {
                     Create <a href="https://github.com/mui-org/material-ui/blob/master/examples/nextjs/src/theme.js" target="_blank">theme.tsx</a> to the place you want. I created under /public/assets/styles (Created folder as well)<br />
                     *Don't forget to replace the imports of this file on _app.tsx and _document.tsx<br />
                     *You can replace the color to your prefered color<br />
+                    *"createMuiTheme" have RENAMED to "createTheme" in NEWER version<br />
                     <img src={"https://training.aizero.com.au/assets/images/web/theme.png"} width={"60%"} height={"40%"} alt="" /><br /><br />
                     After you've done these, the Material-UI should be ready for SSR
                 </Typography>

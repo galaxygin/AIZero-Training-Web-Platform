@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router'
-import Image from 'next/image';
 import { Link, Select, MenuItem, Theme, IconButton, Menu, AppBar, Toolbar, Typography } from '@material-ui/core';
 import { AccountCircle } from '@material-ui/icons';
 import { createStyles, makeStyles } from '@material-ui/styles';
 import Header from './Header';
 import WebDrawer from './web/WebDrawer';
 import IOSDrawer from './ios/iOSDrawer'
-import SwiftUIDrawer from './swiftui/SwiftUIDrawer'
+import SwiftUIDrawer from './ios/swiftui/SwiftUIDrawer'
 import AndroidDrawer from './android/AndroidDrawer'
 import { signOut } from '../api/request/AuthRequest';
 import PageCore from './PageCore';
@@ -96,7 +95,7 @@ export default function PageBase({ content, header = <Header />, selectedPlatfor
                             onClick={e => setAnchorEl(e.currentTarget)}
                             color="inherit"
                         >
-                            {(thumbnail_url == "") ? <AccountCircle style={{ width: 36, height: 36, backgroundColor: 'white', borderRadius: 12 }} /> : <Image src={thumbnail_url} width={36} height={36} />}
+                            {(thumbnail_url == "") ? <AccountCircle style={{ width: 36, height: 36, backgroundColor: 'white', borderRadius: 12 }} /> : <img src={thumbnail_url} width={36} height={36} style={{ borderRadius: 18 }} />}
                         </IconButton>
                     </Toolbar>
                 </AppBar>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import Image from 'next/image'
 import { useStyles } from '../public/assets/styles/styles.web'
 import { Typography, Grid, Paper, Link, IconButton, Menu, MenuItem } from '@material-ui/core'
 import { AccountCircle } from '@material-ui/icons';
@@ -63,11 +62,11 @@ export default function AppIndex() {
                         edge="end"
                         aria-label="account of current user"
                         aria-haspopup="true"
-                        onClick={e => e.currentTarget}
+                        onClick={e => setAnchorEl(e.currentTarget)}
                         color="inherit"
                         style={{ borderRadius: 50 }}
                     >
-                        {(thumbnail_url == "") ? <AccountCircle style={{ width: 100, height: 100, backgroundColor: 'white', borderRadius: 50 }} /> : <Image src={thumbnail_url} width={100} height={100} />}
+                        {(thumbnail_url == "") ? <AccountCircle style={{ width: 100, height: 100, backgroundColor: 'white', borderRadius: 50 }} /> : <img src={thumbnail_url} width={100} height={100} style={{ borderRadius: 50 }} />}
                     </IconButton>
                 </div>
                 <Grid container style={{ marginTop: 32, marginBottom: 32 }} justify="center" >
@@ -81,7 +80,7 @@ export default function AppIndex() {
                     <Grid item key={"android"}>
                         <Paper style={{ backgroundColor: "lime", width: 400, height: 400, alignItems: "center", justifyContent: "center", display: "flex", flexDirection: "column", margin: 16, borderRadius: 30 }} elevation={24} >
                             <Typography variant="h3" style={{ color: "white" }}>Android</Typography>
-                            <Typography variant="h5" style={{ color: "white" }}>Should be covered in the future</Typography>
+                            <Typography variant="h5" style={{ color: "white" }}>May be covered in the future</Typography>
                         </Paper>
                     </Grid>
                     <Grid item key={"web"}>
@@ -94,13 +93,13 @@ export default function AppIndex() {
                     <Grid item key={"server"}>
                         <Paper style={{ backgroundColor: "#454545", width: 400, height: 400, alignItems: "center", justifyContent: "center", display: "flex", flexDirection: "column", margin: 16, borderRadius: 30 }} elevation={24} >
                             <Typography variant="h3" style={{ color: "white" }}>Server side</Typography>
-                            <Typography variant="h5" style={{ color: "white" }}>Should be covered in the future</Typography>
+                            <Typography variant="h5" style={{ color: "white" }}>May be covered in the future</Typography>
                         </Paper>
                     </Grid>
-                    <Grid item key={"swiftui"}>
+                    <Grid item key={"firebase"}>
                         <Paper style={{ backgroundColor: "orange", width: 400, height: 400, alignItems: "center", justifyContent: "center", display: "flex", flexDirection: "column", margin: 16, borderRadius: 30 }} elevation={24} >
-                            <Typography variant="h3" style={{ color: "white" }}>SwiftUI</Typography>
-                            <Typography variant="h5" style={{ color: "white" }}>Should be covered in the future</Typography>
+                            <Typography variant="h3" style={{ color: "white" }}>Firebase</Typography>
+                            <Typography variant="h5" style={{ color: "white" }}>May be covered in the future</Typography>
                         </Paper>
                     </Grid>
                 </Grid>

@@ -1,4 +1,4 @@
-import { makeStyles, fade } from "@material-ui/core";
+import { makeStyles, alpha } from "@material-ui/core";
 
 const drawerWidth = 240;
 
@@ -94,9 +94,9 @@ export const useStyles = makeStyles((theme) => ({
             display: 'flex',
             position: 'relative',
             borderRadius: theme.shape.borderRadius,
-            backgroundColor: fade(theme.palette.common.white, 0.15),
+            backgroundColor: alpha(theme.palette.common.white, 0.15),
             '&:hover': {
-                backgroundColor: fade(theme.palette.common.white, 0.25),
+                backgroundColor: alpha(theme.palette.common.white, 0.25),
             },
             marginRight: theme.spacing(2),
             marginLeft: 16,
@@ -147,7 +147,7 @@ export const useStyles = makeStyles((theme) => ({
         borderWidth: 1,
         fontSize: 16,
         height: 30,
-        width: 600,
+        width: 700,
         whiteSpace: 'pre'
     },
     editorStyle: {
@@ -156,7 +156,7 @@ export const useStyles = makeStyles((theme) => ({
         borderColor: 'silver',
         borderWidth: 1,
         fontSize: 16,
-        minWidth: 600,
+        minWidth: 700,
         whiteSpace: 'pre',
     },
     sectionDesktop: {
