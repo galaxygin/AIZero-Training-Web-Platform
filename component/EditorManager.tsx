@@ -4,7 +4,7 @@ import { calculateEditorHeight } from "./SizeManager";
 export function showEditor(content: string, lines: number, fileName: string) {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', border: "1px solid", borderColor: 'silver' }}>
-            <Typography style={{ color: 'white', height: 20, backgroundColor: "#454545" }}>{fileName}.tsx</Typography>
+            <Typography style={{ color: 'white', height: 20, backgroundColor: "#454545" }}>{fileName}</Typography>
             <textarea readOnly value={content} style={{
                 color: 'lime',
                 backgroundColor: 'black',

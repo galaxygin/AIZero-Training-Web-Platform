@@ -8,7 +8,7 @@ import Header from '../Header'
 
 export default function Firestore() {
     const styles = useStyles()
-    const managerName = "DatabaseManager"
+    const managerName = "DatabaseManager.tsx"
 
     function renderContent() {
         return (
@@ -111,5 +111,5 @@ export function getMembers(): Promise<Member[]> {
         )
     }
 
-    return <PageBase content={renderContent()} header={<Header title="Firestore" url="https://training.aizero.com.au/web/Firestore" />} selectedPlatform="web" />
+    return <PageBase content={renderContent()} header={<Header title="Firestore - Web" url="https://training.aizero.com.au/web/Firestore" />} selectedPlatform="web" />
 }

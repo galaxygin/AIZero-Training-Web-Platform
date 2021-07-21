@@ -12,6 +12,7 @@ import { signOut } from '../api/request/AuthRequest';
 import PageCore from './PageCore';
 import { useCookies } from 'react-cookie';
 import { getUserInfo } from '../api/request/UserRequest';
+import FirebaseDrawer from './firebase/FirebaseDrawer';
 
 export default function PageBase({ content, header = <Header />, selectedPlatform = "ios" }) {
     const drawerStyle = drawerStyles()
@@ -59,10 +60,10 @@ export default function PageBase({ content, header = <Header />, selectedPlatfor
                 return <WebDrawer />
             case "ios":
                 return <IOSDrawer />
-            case "swiftui":
-                return <SwiftUIDrawer />
             case "android":
                 return <AndroidDrawer />
+            case "firebase":
+                return <FirebaseDrawer />
             default:
                 return <div />
         }

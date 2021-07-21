@@ -2,6 +2,7 @@ import React from 'react'
 import { Typography } from '@material-ui/core'
 import { useStyles } from '../../public/assets/styles/styles.web'
 import PageBase from '../PageBase'
+import Header from '../Header'
 
 export default function WebGetStarted() {
     const styles = useStyles()
@@ -32,5 +33,5 @@ export default function WebGetStarted() {
         )
     }
 
-    return <PageBase content={renderContent()} selectedPlatform="web" />
+    return <PageBase content={renderContent()} header={<Header title="Get started - Web" url="https://training.aizero.com.au/web/GetStarted" />} selectedPlatform="web" />
 }

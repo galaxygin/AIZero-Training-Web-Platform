@@ -2,7 +2,8 @@ import React from 'react'
 import { Typography } from '@material-ui/core'
 import { useStyles } from '../../public/assets/styles/styles.web'
 import PageBase from '../PageBase'
-import { calculateEditorHeight } from '../../component/SizeManager'
+import Header from '../Header'
+import { showCmdInput, showEditor } from '../../component/EditorManager'
 
 export default function Grid() {
     const styles = useStyles()
@@ -16,40 +17,40 @@ export default function Grid() {
                     Its structure is almost same as List<br />
                     First, import these components
                 </Typography>
-                <input className={styles.cmdInput} readOnly value={"import { ImageList, ImageListItem, ImageListItemBar } from '@material-ui/core'"} />
+                {showCmdInput("import { ImageList, ImageListItem, ImageListItemBar } from '@material-ui/core'")}
                 <Typography className={styles.textColor}>
                     Create or fetch the "List" object. *Not the component<br />
                     Something like this
                 </Typography>
-                <textarea className={styles.editorStyle} readOnly value={`const founders = [{ "name": "Miguel", "role": "CEO", "img": "", "uri":"" },
-{ "name": "Ginga", "role": "CTO", "img": "", "uri": "" }]`} style={{ height: calculateEditorHeight(2) }} />
+                {showEditor(`const founders = [{ "name": "Miguel", "role": "CEO", "img": "", "uri":"" },
+{ "name": "Ginga", "role": "CTO", "img": "", "uri": "" }]`, 2, "Grid.tsx")}
                 <Typography className={styles.textColor}>
                     Use it like this inside return ()
                 </Typography>
-                <textarea className={styles.editorStyle} readOnly value={`<ImageList>
+                {showEditor(`<ImageList>
     {founders.map((item) =>
         <ImageListItem key={item.name}>
             <img src={item.img} alt={item.name} />
             <ImageListItemBar title={item.name} subtitle={item.role} className={styles.textColor} />
         </ImageListItem>
     )}
-</ImageList>`} style={{ height: calculateEditorHeight(8) }} />
+</ImageList>`, 8, "Grid.tsx")}
                 <Typography className={styles.textColor} variant="h4" style={{ marginTop: 30 }}>
                     Link the iten with the pages
                 </Typography>
                 <Typography className={styles.textColor}>
                     Import "Link" component
                 </Typography>
-                <input className={styles.cmdInput} readOnly value={`import { Link } from '@material-ui/core'`} />
+                {showCmdInput(`import { Link } from '@material-ui/core'`)}
                 <Typography className={styles.textColor}>
                     Put the Link component inside ImageListItem
                 </Typography>
-                <textarea className={styles.editorStyle} readOnly value={`<ImageListItem key={item.title}>
+                {showEditor(`<ImageListItem key={item.title}>
     <Link href={"/" + item.uri} color="inherit">
         <img src={item.img} alt={item.name} />
         <ImageListItemBar title={item.name} subtitle={item.role} className={styles.textColor} />
     </Link>
-</ImageListItem>`} style={{ height: calculateEditorHeight(6) }} />
+</ImageListItem>`, 6, "Grid.tsx")}<br />
                 <Typography className={styles.textColor} variant="h4" paragraph>Next</Typography>
                 <Typography className={styles.textColor}>
                     We will learn about App Bar
@@ -58,5 +59,5 @@ export default function Grid() {
         )
     }
 
-    return <PageBase content={renderContent()} selectedPlatform="web" />
+    return <PageBase content={renderContent()} header={<Header title="Grid - Web" url="https://training.aizero.com.au/web/Grid" />} selectedPlatform="web" />
 }

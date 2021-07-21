@@ -1,9 +1,10 @@
 import React from 'react'
-import Image from 'next/image'
 import { Typography } from '@material-ui/core'
 import { useStyles } from '../../public/assets/styles/styles.web'
 import PageBase from '../PageBase'
-import { calculateEditorHeight } from '../../component/SizeManager'
+import Header from '../Header'
+import { showCmdInput, showEditor } from '../../component/EditorManager'
+import { showImage } from '../../component/ImageManager'
 
 export default function HowToDesignPage() {
     const styles = useStyles()
@@ -25,16 +26,17 @@ export default function HowToDesignPage() {
                 <Typography className={styles.textColor}>
                     Create a file called "styles.tsx" to the place you want. I'll create it under /public/assets/styles (by creating folders)<br />
                     Then import the MUI library<br />
-                    <input readOnly className={styles.cmdInput} value={`import { makeStyles } from "@material-ui/core"`} /><br />
-                    Define a object that has access to the styles (Minimum)<br />
-                    <textarea readOnly className={styles.editorStyle} value={`export const useStyles = makeStyles((theme) => ({
+                    {showCmdInput(`import { makeStyles } from "@material-ui/core`)}<br />
+                    Define a object that has access to the styles (Minimum)
+                </Typography>
+                {showEditor(`export const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         backgroundColor: 'black'
     }
-}))`} style={{ height: calculateEditorHeight(6) }} /><br />
-                    Add more styles<br />
-                    <textarea readOnly className={styles.editorStyle} value={`export const useStyles = makeStyles((theme) => ({
+}))`, 6, "styles.tsx")}<br />
+                <Typography className={styles.textColor}>Add more styles</Typography>
+                {showEditor(`export const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         backgroundColor: 'black'
@@ -42,15 +44,16 @@ export default function HowToDesignPage() {
     textColor: {
         color: 'black'
     }
-}))`} style={{ height: calculateEditorHeight(9) }} /><br /><br />
-                    Then call that object from a page<br />
+}))`, 9, "styles.tsx")}<br /><br />
+                <Typography className={styles.textColor}>Then call that object from a page<br />
                     <input readOnly className={styles.cmdInput} value={"const styles = useStyles()"} /><br />
                     If the editor didn't automatically imported the style file, you have to manually import that as well<br />
                     <input readOnly className={styles.cmdInput} value={`import { useStyles } from '../../public/assets/styles/styles'`} /><br />
                     You can apply the style by calling this method on each component<br />
                     <input readOnly className={styles.cmdInput} value={`className={styles.root}`} /><br /><br />
-                    Then I edited Home() just showing bigger "Hello World"<br />
-                    <textarea readOnly className={styles.editorStyle} value={`export default function Home() {
+                    Then I edited Home() just showing bigger "Hello World"
+                </Typography>
+                {showEditor(`export default function Home() {
   const styles = useStyles()
 
   return (
@@ -65,15 +68,16 @@ export default function HowToDesignPage() {
         </div>
     </div>
   )
-}`} style={{ height: calculateEditorHeight(16) }} /><br />
+}`, 16, "HelloWorld.tsx")}<br />
+                <Typography className={styles.textColor}>
                     If you've written the same code, editor should showing the error "Cannot find Typography"<br />
                     So you have to import it by<br />
-                    <input readOnly className={styles.cmdInput} value={`import { Typography } from '@material-ui/core'`} /><br />
+                    {showCmdInput(`import { Typography } from '@material-ui/core'`)}<br />
                     Learn more about <a href="https://material-ui.com/components/typography/" target="_blank">Typography</a><br /><br />
                     You
                     If you write a code like above, aceess to the page and should be showing like this<br />
                 </Typography>
-                <Image src={"/assets/images/web/HelloWorld.png"} width={600} height={400} alt="" /><br /><br />
+                {showImage("/assets/images/web/HelloWorld.png")}<br /><br />
                 <Typography className={styles.textColor} paragraph>This is the way how to design a page. Learn more design techniques on Google, we won't describe it here</Typography>
                 <Typography className={styles.textColor} variant="h4" paragraph>Next</Typography>
                 <Typography className={styles.textColor}>
@@ -83,5 +87,5 @@ export default function HowToDesignPage() {
         )
     }
 
-    return <PageBase content={renderContent()} selectedPlatform="web" />
+    return <PageBase content={renderContent()} header={<Header title="How to design a page - Web" url="https://training.aizero.com.au/web/HowToDesignPage" />} selectedPlatform="web" />
 }

@@ -2,6 +2,8 @@ import React from 'react'
 import { Typography } from '@material-ui/core'
 import { useStyles } from '../../public/assets/styles/styles.web'
 import PageBase from '../PageBase'
+import Header from '../Header'
+import { showCmdInput } from '../../component/EditorManager'
 
 export default function CreateProject() {
     const styles = useStyles()
@@ -15,24 +17,24 @@ export default function CreateProject() {
                 </Typography>
                 <Typography className={styles.textColor} paragraph>
                     First, move to the directory by "cd" you want to create a project.<br />
-                    <input readOnly className={styles.cmdInput} value="cd {directory}" /><br />
+                    {showCmdInput(`cd {directory}`)}<br />
                     *In my case, I do "cd Desktop/Github"<br /><br />
                     This command create a base of project named "practice" using <a href="https://nextjs.org/" target="_blank">Next.js</a><br />
-                    <input readOnly className={styles.cmdInput} value="npx create-next-app --ts next-practice" /><br />
+                    {showCmdInput(`npx create-next-app --ts next-training`)}<br />
                     *npx is not wrong command<br />
                     *You can replace the "next-practice" with your prefered name<br />
                     *The terminal app will ask you to install "create-next-app" if it's not installed on your PC. Press "y"<br /><br />
                     After the project has been created, move to the directory of the project<br />
-                    <input readOnly className={styles.cmdInput} value="cd next-practice" /><br />
+                    {showCmdInput(`cd next-training`)}<br />
                     *Replace the "next-practice" with others if you renamed it (All times)<br /><br />
                     Then install the libraries we will use<br />
                     Material UI<br />
-                    <input readOnly className={styles.cmdInput} value="yarn add @material-ui/core @material-ui/icons @material-ui/lab @material-ui/styles" /><br />
+                    {showCmdInput(`yarn add @material-ui/core @material-ui/icons @material-ui/lab @material-ui/styles`)}<br />
                     *The minimum is /core, but we will need more libraries in order to use more features of MUI.<br />
                     Firebase<br />
-                    <input readOnly className={styles.cmdInput} value="yarn add firebase" /><br />
+                    {showCmdInput(`yarn add firebase`)}<br />
                     Supabase<br />
-                    <input readOnly className={styles.cmdInput} value="yarn add @supabase/supabase-js" /><br /><br />
+                    {showCmdInput(`yarn add @supabase/supabase-js`)}<br /><br />
                     The libraries needed at the moment are installed
                 </Typography>
                 <Typography className={styles.textColor} variant="h4" paragraph>Next</Typography>
@@ -43,5 +45,5 @@ export default function CreateProject() {
         )
     }
 
-    return <PageBase content={renderContent()} selectedPlatform="web" />
+    return <PageBase content={renderContent()} header={<Header title="Create a new Project - Web" url="https://training.aizero.com.au/web/CreateProject" />} selectedPlatform="web" />
 }

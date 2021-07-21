@@ -97,10 +97,11 @@ export default function AppIndex() {
                         </Paper>
                     </Grid>
                     <Grid item key={"firebase"}>
-                        <Paper style={{ backgroundColor: "orange", width: 400, height: 400, alignItems: "center", justifyContent: "center", display: "flex", flexDirection: "column", margin: 16, borderRadius: 30 }} elevation={24} >
-                            <Typography variant="h3" style={{ color: "white" }}>Firebase</Typography>
-                            <Typography variant="h5" style={{ color: "white" }}>May be covered in the future</Typography>
-                        </Paper>
+                        <Link href="/firebase/GetStarted">
+                            <Paper style={{ backgroundColor: "orange", width: 400, height: 400, alignItems: "center", justifyContent: "center", display: "flex", flexDirection: "column", margin: 16, borderRadius: 30 }} elevation={24} >
+                                <Typography variant="h3" style={{ color: "white" }}>Firebase</Typography>
+                            </Paper>
+                        </Link>
                     </Grid>
                 </Grid>
                 {renderMenu}

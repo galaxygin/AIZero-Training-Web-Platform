@@ -2,7 +2,8 @@ import React from 'react'
 import { Typography } from '@material-ui/core'
 import { useStyles } from '../../public/assets/styles/styles.web'
 import PageBase from '../PageBase'
-import { calculateEditorHeight } from '../../component/SizeManager'
+import Header from '../Header'
+import { showCmdInput, showEditor } from '../../component/EditorManager'
 
 export default function AppBar() {
     const styles = useStyles()
@@ -16,12 +17,12 @@ export default function AppBar() {
                     It's very simple.<br /><br />
                     Import these components
                 </Typography>
-                <input className={styles.cmdInput} readOnly value={"import { AppBar, Toolbar, Typography } from '@material-ui/core'"} />
-                <input className={styles.cmdInput} readOnly value={"import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'"} />
+                {showCmdInput("import { AppBar, Toolbar, Typography } from '@material-ui/core'")}
+                {showCmdInput("import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'")}
                 <Typography className={styles.textColor}>
                     Define the style
                 </Typography>
-                <textarea className={styles.editorStyle} readOnly value={`const useStyles = makeStyles((theme: Theme) =>
+                {showEditor(`const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             flexGrow: 1,
@@ -33,21 +34,21 @@ export default function AppBar() {
             flexGrow: 1,
         },
     }),
-);`} style={{ height: calculateEditorHeight(13) }} />
+);`, 13, "AppBar.tsx")}
                 <Typography className={styles.textColor}>
                     Inside return(), this is the implementation of the simple App Bar
                 </Typography>
-                <textarea className={styles.editorStyle} readOnly value={`<AppBar position="static">
+                {showEditor(`<AppBar position="static">
     <Toolbar>
         <Typography variant="h6" className={classes.title}>
             Next Training
         </Typography>
     </Toolbar>
-</AppBar>`} style={{ height: calculateEditorHeight(7) }} />
+</AppBar>`, 7, "AppBar.tsx")}
                 <Typography className={styles.textColor}>
                     You should want to do like this in real development
                 </Typography>
-                <textarea className={styles.editorStyle} readOnly value={`<div className={classes.root}>
+                {showEditor(`<div className={classes.root}>
     <AppBar position="static">
         <Toolbar>
             <Typography variant="h6" className={classes.title}>
@@ -58,7 +59,7 @@ export default function AppBar() {
     <main>
         {/* Put the content to here */}
     </main>
-</div>`} style={{ height: calculateEditorHeight(12) }} />
+</div>`, 12, "AppBar.tsx")}<br />
                 <Typography className={styles.textColor} variant="h4" paragraph>Next</Typography>
                 <Typography className={styles.textColor}>
                     We will learn the design of implementing RestAPI.
@@ -67,5 +68,5 @@ export default function AppBar() {
         )
     }
 
-    return <PageBase content={renderContent()} selectedPlatform="web" />
+    return <PageBase content={renderContent()} header={<Header title="App Bar - Web" url="https://training.aizero.com.au/web/AppBar" />} selectedPlatform="web" />
 }

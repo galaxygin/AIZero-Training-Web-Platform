@@ -58,5 +58,5 @@ export default function AppBar() {
         )
     }
 
-    return <PageBase content={renderContent()} header={<Header title="RestAPI" url="https://training.aizero.com.au/web/RestAPI" />} selectedPlatform="web" />
+    return <PageBase content={renderContent()} header={<Header title="RestAPI - Web" url="https://training.aizero.com.au/web/RestAPI" />} selectedPlatform="web" />
 }

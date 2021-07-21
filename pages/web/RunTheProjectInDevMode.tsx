@@ -2,6 +2,8 @@ import React from 'react'
 import { Typography } from '@material-ui/core'
 import { useStyles } from '../../public/assets/styles/styles.web'
 import PageBase from '../PageBase'
+import Header from '../Header'
+import { showCmdInput } from '../../component/EditorManager'
 
 export default function RunTheProjectInDevMode() {
     const styles = useStyles()
@@ -15,7 +17,7 @@ export default function RunTheProjectInDevMode() {
                 </Typography>
                 <Typography className={styles.textColor} paragraph>
                     First, make sure the terminal directory is at project directory. Then run<br />
-                    <input readOnly className={styles.cmdInput} value="yarn next dev" /><br /><br />
+                    {showCmdInput(`yarn next dev`)}<br /><br />
                     After the dev server is started, you will be able to access to the page of the project by typing localhost:3000 on your browser<br /><br />
                     At this stage, you should be seeing the content of index.tsx<br /><br />
                     You can stop the server by "Ctrl+C"(Sometimes required twice) on terminal<br />
@@ -28,5 +30,5 @@ export default function RunTheProjectInDevMode() {
         )
     }
 
-    return <PageBase content={renderContent()} selectedPlatform="web" />
+    return <PageBase content={renderContent()} header={<Header title="Run the project in dev mode - Web" url="https://training.aizero.com.au/web/RunTheProjectInDevMode" />} selectedPlatform="web" />
 }

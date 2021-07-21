@@ -2,8 +2,7 @@ import React from 'react'
 import { Typography } from '@material-ui/core'
 import { useStyles } from '../../public/assets/styles/styles.web'
 import PageBase from '../PageBase'
-import { calculateEditorHeight } from '../../component/SizeManager'
-import Image from 'next/image'
+import Header from '../Header'
 
 export default function PageRouting() {
     const styles = useStyles()
@@ -26,5 +25,5 @@ export default function PageRouting() {
         )
     }
 
-    return <PageBase content={renderContent()} selectedPlatform="web" />
+    return <PageBase content={renderContent()} header={<Header title="Page routing - Web" url="https://training.aizero.com.au/web/PageRouting" />} selectedPlatform="web" />
 }

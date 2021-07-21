@@ -58,5 +58,5 @@ export function Timestamp() { return firebase.firestore.Timestamp.now() }`, 25, 
         )
     }
 
-    return <PageBase content={renderContent()} header={<Header title="Setup Firebase" url="https://training.aizero.com.au/web/SetupFirebase" />} selectedPlatform="web" />
+    return <PageBase content={renderContent()} header={<Header title="Setup Firebase - Web" url="https://training.aizero.com.au/web/SetupFirebase" />} selectedPlatform="web" />
 }

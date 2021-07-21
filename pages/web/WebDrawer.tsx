@@ -3,7 +3,7 @@ import { useStyles } from '../../public/assets/styles/styles.web'
 import { List, ListItem, Link, ListItemText, Drawer, Divider, Toolbar } from '@material-ui/core'
 
 const menu = [{ "title": "Get started", "uri": "GetStarted" },
-{ "title": "Set up environment", "uri": "SetUpEnvironment" },
+{ "title": "Setup environment", "uri": "SetupEnvironment" },
 { "title": "Create a new Project", "uri": "CreateProject" },
 { "title": "Run the project in dev mode", "uri": "RunTheProjectInDevMode" },
 { "title": "Project Structure", "uri": "ProjectStructure" },
