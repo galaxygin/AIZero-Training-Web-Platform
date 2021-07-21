@@ -6,6 +6,7 @@ import Alert from '@material-ui/lab/Alert';
 import Header from './Header';
 import { Auth } from "../FirebaseManager";
 import { useCookies } from "react-cookie";
+import { updateLastOnlineTimestamp } from "../api/request/UserRequest";
 
 export default function PageCore({ content, header = <Header title="Sign in" /> }) {
     const styles = useStyles()
@@ -19,6 +20,7 @@ export default function PageCore({ content, header = <Header title="Sign in" /> 
     Auth.onAuthStateChanged(user => {
         if (user) {
             setSignedIn(true)
+            updateLastOnlineTimestamp(user.uid)
         } else {
             setSignedIn(false)
         }

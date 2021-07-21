@@ -76,16 +76,15 @@ export default function PageBase({ content, header = <Header />, selectedPlatfor
                         <Link href="/" color="inherit">
                             <Typography variant="h6" noWrap>AIZero Training</Typography>
                         </Link>
-                        <Select
+                        {/* <Select
                             style={{ margin: 16, color: "white" }}
                             value={platform}
                             onChange={e => changePlatform(e.target.value as string)}
                         >
                             <MenuItem value={"web"}>Web</MenuItem>
                             <MenuItem value={"ios"}>iOS</MenuItem>
-                            <MenuItem value={"swiftui"}>SwiftUI</MenuItem>
                             <MenuItem value={"android"}>Android</MenuItem>
-                        </Select>
+                        </Select> */}
                         <div className={drawerStyle.grow} />
                         <IconButton
                             edge="end"

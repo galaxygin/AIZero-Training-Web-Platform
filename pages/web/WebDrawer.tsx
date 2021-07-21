@@ -17,8 +17,9 @@ const menu = [{ "title": "Get started", "uri": "GetStarted" },
 { "title": "List", "uri": "List" },
 { "title": "Grid", "uri": "Grid" },
 { "title": "App Bar", "uri": "AppBar" },
-{ "title": "RestAPI", "uri": "RestAPI" },
-{ "title": "Setup Firebase", "uri": "SetupFirebase" }]
+{ "title": "RestAPI", "uri": "RestAPI" }]
+const firebase = [{ "title": "Setup Firebase", "uri": "SetupFirebase" },
+{ "title": "Firestore", "uri": "Firestore" }]
 
 export default function WebDrawer() {
     const styles = useStyles()
@@ -45,8 +46,24 @@ export default function WebDrawer() {
                     </Link>
                 </ListItem>
                 <Divider />
+                <ListItem>
+                    <Link href={"https://github.com/Aizero-Inc/Next-Training"} target="_blank">
+                        <ListItemText primary={"Sample project repo"} className={styles.textColor} />
+                    </Link>
+                </ListItem>
+                <Divider />
                 <List>
                     {menu.map((item) => (
+                        <ListItem key={item.title} >
+                            <Link href={"/web/" + item.uri} color="inherit">
+                                <ListItemText primary={item.title} className={styles.textColor} />
+                            </Link>
+                        </ListItem>
+                    ))}
+                </List>
+                <Divider />
+                <List>
+                    {firebase.map((item) => (
                         <ListItem key={item.title} >
                             <Link href={"/web/" + item.uri} color="inherit">
                                 <ListItemText primary={item.title} className={styles.textColor} />

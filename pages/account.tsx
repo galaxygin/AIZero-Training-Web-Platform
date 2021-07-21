@@ -8,6 +8,7 @@ import { getUser, signOut } from '../api/request/AuthRequest';
 import Alert from '@material-ui/lab/Alert';
 import { getUserInfo, updateUserInfo, uploadThumbnail } from "../api/request/UserRequest";
 import { useCookies } from 'react-cookie'
+import Header from "./Header";
 
 export default function Account() {
     const styles = useStyles()
@@ -187,5 +188,5 @@ export default function Account() {
         )
     }
 
-    return <PageCore content={content()} />
+    return <PageCore content={content()} header={<Header title="Account" url="https://training.aizero.com.au/account" />} />
 }

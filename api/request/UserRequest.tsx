@@ -1,4 +1,4 @@
-import { Firestore, Storage } from "../../FirebaseManager";
+import { Firestore, Storage, Timestamp } from "../../FirebaseManager";
 import { getUser } from "./AuthRequest";
 
 export function getUserInfo(uid: string) {
@@ -21,4 +21,8 @@ export function uploadThumbnail(image: File): Promise<string> {
             })
         })
     })
+}
+
+export function updateLastOnlineTimestamp(uid: string) {
+    return Firestore.batch().update(Firestore.collection("users").doc(uid), { "last_online": Timestamp() }).commit()
 }

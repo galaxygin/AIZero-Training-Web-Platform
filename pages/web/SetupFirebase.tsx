@@ -4,6 +4,7 @@ import { useStyles } from '../../public/assets/styles/styles.web'
 import PageBase from '../PageBase'
 import { showImage } from '../../component/ImageManager'
 import { showEditor } from '../../component/EditorManager'
+import Header from '../Header'
 
 export default function SetupFirebase() {
     const styles = useStyles()
@@ -49,7 +50,7 @@ export const Firebase = firebase
 export const Firestore = firebase.firestore();
 export const Auth = firebase.auth()
 export const Storage = firebase.storage()
-export function Timestamp() { return firebase.firestore.Timestamp.now() }`, 25)}
+export function Timestamp() { return firebase.firestore.Timestamp.now() }`, 25, "FirebaseManager.tsx")}
                 <Typography className={styles.textColor}>
                     Now the project will have easier access by importing each Feature
                 </Typography>
@@ -57,5 +58,5 @@ export function Timestamp() { return firebase.firestore.Timestamp.now() }`, 25)}
         )
     }
 
-    return <PageBase content={renderContent()} selectedPlatform="web" />
+    return <PageBase content={renderContent()} header={<Header title="Setup Firebase" url="https://training.aizero.com.au/web/SetupFirebase" />} selectedPlatform="web" />
 }

@@ -3,6 +3,7 @@ import { Typography } from '@material-ui/core'
 import { useStyles } from '../../public/assets/styles/styles.web'
 import PageBase from '../PageBase'
 import { ArrowDownwardRounded } from '@material-ui/icons'
+import Header from '../Header'
 
 export default function AppBar() {
     const styles = useStyles()
@@ -57,5 +58,5 @@ export default function AppBar() {
         )
     }
 
-    return <PageBase content={renderContent()} selectedPlatform="web" />
+    return <PageBase content={renderContent()} header={<Header title="RestAPI" url="https://training.aizero.com.au/web/RestAPI" />} selectedPlatform="web" />
 }
