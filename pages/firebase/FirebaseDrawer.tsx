@@ -2,7 +2,8 @@ import React from 'react'
 import { useStyles } from '../../public/assets/styles/styles.web'
 import { List, ListItem, Link, ListItemText, Drawer, Divider, Toolbar } from '@material-ui/core'
 
-const menu = [{ "title": "Get started", "uri": "GetStarted" }]
+const menu = [{ "title": "Get started", "uri": "GetStarted" },
+{ "title": "Firestore", "uri": "Firestore" }]
 
 export default function FirebaseDrawer() {
     const styles = useStyles()

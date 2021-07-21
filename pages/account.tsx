@@ -37,9 +37,9 @@ export default function Account() {
     useEffect(() => {
         setHeight(window.innerHeight)
         getUserInfo(cookies.uid).then(doc => {
-            setName(doc.data().name)
-            setProfile(doc.data().profile)
-            setThumbnailUrl(doc.data().thumbnail_url)
+            setName(doc.data()?.name)
+            setProfile(doc.data()?.profile)
+            setThumbnailUrl(doc.data()?.thumbnail_url)
         })
     }, [])
 

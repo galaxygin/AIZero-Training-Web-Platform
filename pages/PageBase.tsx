@@ -30,7 +30,7 @@ export default function PageBase({ content, header = <Header />, selectedPlatfor
         }
         if (cookies.uid) {
             getUserInfo(cookies.uid).then(doc => {
-                setThumbnailUrl(doc.data().thumbnail_url)
+                setThumbnailUrl(doc.data()?.thumbnail_url)
             })
         }
     }, [])

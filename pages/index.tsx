@@ -22,7 +22,7 @@ export default function AppIndex() {
         setInnerWidth(window.innerWidth)
         if (cookies.uid) {
             getUserInfo(cookies.uid).then(doc => {
-                setThumbnailUrl(doc.data().thumbnail_url)
+                setThumbnailUrl(doc.data()?.thumbnail_url)
             })
         }
     }, [])
