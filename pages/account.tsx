@@ -14,6 +14,7 @@ export default function Account() {
     const styles = useStyles()
     const router = useRouter()
     const [height, setHeight] = useState(0)
+    const [email, setEmail] = useState("")
 
     const [editingProfile, changingProfile] = useState(false)
     const [name, setName] = useState("Name")
@@ -42,6 +43,16 @@ export default function Account() {
             setBio(doc.data()?.bio)
             setThumbnailUrl(doc.data()?.thumbnail_url)
         })
+        if (getUser()) {
+            getProfile(cookies.uid).then(doc => {
+                setName(doc.data()?.name)
+                setBio(doc.data()?.bio)
+                setThumbnailUrl(doc.data()?.thumbnail_url)
+            })
+            setEmail(getUser().email)
+        } else {
+            router.push('/')
+        }
     }, [])
 
     const handleThumbMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -175,7 +186,7 @@ export default function Account() {
                     {(editingProfile) ? <TextField style={{ backgroundColor: 'white' }} multiline variant={"outlined"} rows={5} value={bio} onChange={e => setBio(e.target.value)} /> : <Typography className={styles.textColor}>{bio}</Typography>}
                 </div>
                 <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", backgroundColor: 'dimgray', marginLeft: "16%", marginRight: "16%", marginTop: 16, padding: 16, opacity: 0.9 }}>
-                    <Typography style={{ color: 'white' }} >Email : {getUser().email}</Typography>
+                    <Typography style={{ color: 'white' }} >Email : {email}</Typography>
                 </div>
                 <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", backgroundColor: 'dimgray', marginLeft: "16%", marginRight: "16%", marginTop: 16, padding: 8, opacity: 0.9 }}>
                     <Button style={{ color: 'white', borderColor: 'silver' }} onClick={() => changingPW(true)}>Change Password</Button>

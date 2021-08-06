@@ -6,7 +6,7 @@ import { AccountCircle } from '@material-ui/icons';
 import PageCore from './PageCore'
 import { signOut } from '../api/request/AuthRequest';
 import { useCookies } from 'react-cookie'
-import { getUserInfo } from '../api/request/UserRequest'
+import { getProfile } from '../api/request/UserRequest'
 
 export default function AppIndex() {
     const styles = useStyles()
@@ -21,7 +21,7 @@ export default function AppIndex() {
     useEffect(() => {
         setInnerWidth(window.innerWidth)
         if (cookies.uid) {
-            getUserInfo(cookies.uid).then(doc => {
+            getProfile(cookies.uid).then(doc => {
                 setThumbnailUrl(doc.data()?.thumbnail_url)
             })
         }
