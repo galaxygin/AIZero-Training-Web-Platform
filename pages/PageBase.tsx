@@ -1,23 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router'
-import { Link, Select, MenuItem, Theme, IconButton, Menu, AppBar, Toolbar, Typography } from '@material-ui/core';
+import { Link, MenuItem, Theme, IconButton, Menu, AppBar, Toolbar, Typography } from '@material-ui/core';
 import { AccountCircle } from '@material-ui/icons';
 import { createStyles, makeStyles } from '@material-ui/styles';
 import Header from './Header';
 import WebDrawer from './web/WebDrawer';
 import IOSDrawer from './ios/iOSDrawer'
-import SwiftUIDrawer from './ios/swiftui/SwiftUIDrawer'
 import AndroidDrawer from './android/AndroidDrawer'
 import { signOut } from '../api/request/AuthRequest';
 import PageCore from './PageCore';
 import { useCookies } from 'react-cookie';
-import { getUserInfo } from '../api/request/UserRequest';
+import { getProfile } from '../api/request/UserRequest';
 import FirebaseDrawer from './firebase/FirebaseDrawer';
 
 export default function PageBase({ content, header = <Header />, selectedPlatform = "ios" }) {
     const drawerStyle = drawerStyles()
     const router = useRouter()
-    const [platform, changePlatform] = useState(selectedPlatform)
     const [anchorEl, setAnchorEl] = useState(null);
     const [thumbnail_url, setThumbnailUrl] = useState('')
     const [cookies, setCookie, removeCookie] = useCookies(['uid'])
@@ -29,7 +27,7 @@ export default function PageBase({ content, header = <Header />, selectedPlatfor
             changeDrawer(selectedPlatform)
         }
         if (cookies.uid) {
-            getUserInfo(cookies.uid).then(doc => {
+            getProfile(cookies.uid).then(doc => {
                 setThumbnailUrl(doc.data()?.thumbnail_url)
             })
         }
@@ -77,15 +75,6 @@ export default function PageBase({ content, header = <Header />, selectedPlatfor
                         <Link href="/" color="inherit">
                             <Typography variant="h6" noWrap>AIZero Training</Typography>
                         </Link>
-                        {/* <Select
-                            style={{ margin: 16, color: "white" }}
-                            value={platform}
-                            onChange={e => changePlatform(e.target.value as string)}
-                        >
-                            <MenuItem value={"web"}>Web</MenuItem>
-                            <MenuItem value={"ios"}>iOS</MenuItem>
-                            <MenuItem value={"android"}>Android</MenuItem>
-                        </Select> */}
                         <div className={drawerStyle.grow} />
                         <IconButton
                             edge="end"
@@ -95,14 +84,14 @@ export default function PageBase({ content, header = <Header />, selectedPlatfor
                             onClick={e => setAnchorEl(e.currentTarget)}
                             color="inherit"
                         >
-                            {(thumbnail_url == "") ? <AccountCircle style={{ width: 36, height: 36, backgroundColor: 'white', borderRadius: 12 }} /> : <img src={thumbnail_url} width={36} height={36} style={{ borderRadius: 18 }} />}
+                            {(thumbnail_url) ? <img src={thumbnail_url} width={36} height={36} style={{ borderRadius: 18 }} /> : <AccountCircle style={{ width: 36, height: 36, backgroundColor: 'white', borderRadius: 12 }} />}
                         </IconButton>
                     </Toolbar>
                 </AppBar>
                 {renderMenu}
                 <nav className={drawerStyle.drawer}>
                     {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-                    {changeDrawer(platform)}
+                    {changeDrawer(selectedPlatform)}
                 </nav>
                 <main className={drawerStyle.content}>
                     <div className={drawerStyle.drawerHeader} />

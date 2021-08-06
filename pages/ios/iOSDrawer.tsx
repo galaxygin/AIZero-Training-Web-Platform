@@ -22,6 +22,8 @@ const menu = [{ "title": "Get started", "uri": "GetStarted" },
 { "title": "UICollectionView", "uri": "UICollectionView" },
 { "title": "Tab Bar Controller", "uri": "TabBarController" }]
 
+const swiftuiMenu = [{ "title": "Maybe covered in future", "uri": "/" }]
+
 export default function IOSDrawer() {
     const styles = useStyles()
 
@@ -51,6 +53,16 @@ export default function IOSDrawer() {
                     {menu.map((item) => (
                         <ListItem key={item.title} >
                             <Link href={"/ios/" + item.uri} color="inherit">
+                                <ListItemText primary={item.title} className={styles.textColor} />
+                            </Link>
+                        </ListItem>
+                    ))}
+                </List>
+                <Divider />
+                <List>
+                    {swiftuiMenu.map((item) => (
+                        <ListItem key={item.title} >
+                            <Link href={"/ios/swiftui" + item.uri} color="inherit">
                                 <ListItemText primary={item.title} className={styles.textColor} />
                             </Link>
                         </ListItem>

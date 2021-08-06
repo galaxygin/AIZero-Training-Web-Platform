@@ -1,12 +1,12 @@
-import React, { useState, useEffect, BaseSyntheticEvent } from "react";
+import React, { useState, useEffect } from "react";
 import { useStyles } from "../public/assets/styles/styles.web";
 import { useRouter } from "next/router";
 import { Button, Typography, TextField, Menu, MenuItem, Dialog, DialogTitle, DialogContent, DialogActions, IconButton, CircularProgress } from "@material-ui/core";
-import { AccountCircle, Edit, Done, ChevronLeft } from '@material-ui/icons';
+import { AccountCircle, Edit, Done, ChevronLeft, Close } from '@material-ui/icons';
 import PageCore from "./PageCore";
 import { getUser, signOut } from '../api/request/AuthRequest';
 import Alert from '@material-ui/lab/Alert';
-import { getUserInfo, updateUserInfo, uploadThumbnail } from "../api/request/UserRequest";
+import { getProfile, updateProfile, uploadThumbnail } from "../api/request/UserRequest";
 import { useCookies } from 'react-cookie'
 import Header from "./Header";
 
@@ -14,13 +14,13 @@ export default function Account() {
     const styles = useStyles()
     const router = useRouter()
     const [height, setHeight] = useState(0)
-    const [editing, setEditing] = useState(false)
-    const [name, setName] = useState("Name")
-    const [profile, setProfile] = useState("Profile")
-    const [thumbnail_url, setThumbnailUrl] = useState('')
-    const [anchorEl, setAnchorEl] = useState(null);
 
-    const [changePW, changingPW] = useState(false)
+    const [editingProfile, changingProfile] = useState(false)
+    const [name, setName] = useState("Name")
+    const [bio, setBio] = useState("")
+    const [thumbnail_url, setThumbnailUrl] = useState('')
+
+    const [editingPW, changingPW] = useState(false)
     const [newPW, setPW] = useState("")
     const [CPW, setCPW] = useState("")
     const [errorPWMsg, setErrorPWMsg] = useState(null)
@@ -32,13 +32,14 @@ export default function Account() {
 
     const [cookies, setCookie, removeCookie] = useCookies(['uid'])
 
+    const [anchorEl, setAnchorEl] = useState(null);
     const isMenuOpen = Boolean(anchorEl);
 
     useEffect(() => {
         setHeight(window.innerHeight)
-        getUserInfo(cookies.uid).then(doc => {
+        getProfile(cookies.uid).then(doc => {
             setName(doc.data()?.name)
-            setProfile(doc.data()?.profile)
+            setBio(doc.data()?.bio)
             setThumbnailUrl(doc.data()?.thumbnail_url)
         })
     }, [])
@@ -69,24 +70,12 @@ export default function Account() {
         </Menu>
     );
 
-    function pickImage(event: BaseSyntheticEvent) {
+    function pickImage(event: React.ChangeEvent<HTMLInputElement>) {
         if (event.target.files && event.target.files[0]) {
             // const fileReader: FileReader = new myWindow.FileReader()
             // fileReader.onload = async (e: Event) => { }
             // fileReader.readAsArrayBuffer(event.target.files[0]);
             setNewThumb(event.target.files[0])
-        }
-    }
-
-    function renderPWAlert() {
-        if (errorPWMsg) {
-            return <Alert severity="error" style={{ marginBottom: 8 }}>{errorPWMsg}</Alert>
-        }
-    }
-
-    function renderThumbAlert() {
-        if (errorThumbMsg) {
-            return <Alert severity="error" style={{ marginBottom: 8 }}>{errorThumbMsg}</Alert>
         }
     }
 
@@ -102,10 +91,10 @@ export default function Account() {
     function content() {
         return (
             <div style={{ backgroundColor: "#191970", height: height, opacity: 0.9 }}>
-                <Dialog open={changePW} onClose={() => changingPW(false)} fullWidth>
+                <Dialog open={editingPW} onClose={() => changingPW(false)} fullWidth>
                     <DialogTitle style={{ backgroundColor: '#454545', color: 'white' }}>Change Password</DialogTitle>
                     <DialogContent style={{ backgroundColor: '#454545', color: 'white' }}>
-                        {renderPWAlert()}
+                        {(errorPWMsg) ? <Alert severity="error" style={{ marginBottom: 8 }}>{errorPWMsg}</Alert> : null}
                         New Password<br />
                         *Length needs to be more than 8 characters<br />
                         <TextField style={{ backgroundColor: 'white' }} type="password" onChange={e => setPW(e.target.value)} /><br />
@@ -128,7 +117,7 @@ export default function Account() {
                 }} fullWidth>
                     <DialogTitle style={{ backgroundColor: '#454545', color: 'white' }}>Change Thumbnail</DialogTitle>
                     <DialogContent style={{ backgroundColor: '#454545', color: 'white' }}>
-                        {renderThumbAlert()}
+                        {(errorThumbMsg) ? <Alert severity="error" style={{ marginBottom: 8 }}>{errorThumbMsg}</Alert> : null}
                         <input type="file" onChange={pickImage} className="filetype" accept="image/*" id="group_image" /><br />
                         <img src={newThumb} width={100} height={100} alt={""} />
                     </DialogContent>
@@ -156,11 +145,19 @@ export default function Account() {
                         </Typography>
                     </div>
                     <div style={{ flexGrow: 1 }} />
-                    {(editing) ? <IconButton style={{ backgroundColor: 'lime' }} onClick={() => updateUserInfo(cookies.uid, name, profile).then(() => setEditing(false))}>
-                        <Done style={{ width: 30, height: 30, color: 'white' }} />
-                    </IconButton> : <IconButton style={{ backgroundColor: 'white' }} onClick={() => setEditing(true)}>
-                        <Edit style={{ width: 30, height: 30, color: 'black' }} />
-                    </IconButton>}
+                    {(editingProfile) ? <div>
+                        <IconButton style={{ backgroundColor: 'red', marginRight: 16 }} onClick={() => {
+                            changingProfile(false)
+                        }}>
+                            <Close style={{ width: 16, height: 16, color: 'white' }} />
+                        </IconButton><IconButton style={{ backgroundColor: 'lime' }} onClick={() => updateProfile(name, bio).then(() => changingProfile(false))}>
+                            <Done style={{ width: 16, height: 16, color: 'white' }} />
+                        </IconButton>
+                    </div> : <div>
+                        <IconButton style={{ backgroundColor: 'white' }} onClick={() => changingProfile(true)}>
+                            <Edit style={{ width: 16, height: 16, color: 'black' }} />
+                        </IconButton>
+                    </div>}
                 </div>
                 <div style={{ flex: 1, display: "flex", flexDirection: 'column', alignItems: "center" }}>
                     <IconButton
@@ -172,12 +169,18 @@ export default function Account() {
                     >
                         {(thumbnail_url == "") ? <AccountCircle style={{ width: 100, height: 100, backgroundColor: 'white', borderRadius: 50 }} /> : <img src={thumbnail_url} width={100} height={100} style={{ borderRadius: 50 }} />}
                     </IconButton>
-                    {(editing) ? <TextField style={{ backgroundColor: 'white' }} variant={"outlined"} value={name} onChange={e => setName(e.target.value)} /> : <Typography className={styles.textColor} variant="h3">{name}</Typography>}
+                    {(editingProfile) ? <TextField style={{ backgroundColor: 'white' }} variant={"outlined"} value={name} onChange={e => setName(e.target.value)} /> : <Typography className={styles.textColor} variant="h3">{name}</Typography>}
                 </div>
                 <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", backgroundColor: 'dimgray', marginLeft: "16%", marginRight: "16%", marginTop: 16, padding: 16, opacity: 0.9 }}>
-                    {(editing) ? <TextField style={{ backgroundColor: 'white' }} multiline variant={"outlined"} rows={5} value={profile} onChange={e => setProfile(e.target.value)} /> : <Typography className={styles.textColor}>{profile}</Typography>}
-                    <Typography className={styles.textColor}>Email: {getUser()?.email}</Typography><br />
-                    <Button style={{ color: 'white', borderColor: 'silver' }} onClick={() => changingPW(true)}>Change Password</Button><br />
+                    {(editingProfile) ? <TextField style={{ backgroundColor: 'white' }} multiline variant={"outlined"} rows={5} value={bio} onChange={e => setBio(e.target.value)} /> : <Typography className={styles.textColor}>{bio}</Typography>}
+                </div>
+                <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", backgroundColor: 'dimgray', marginLeft: "16%", marginRight: "16%", marginTop: 16, padding: 16, opacity: 0.9 }}>
+                    <Typography style={{ color: 'white' }} >Email : {getUser().email}</Typography>
+                </div>
+                <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", backgroundColor: 'dimgray', marginLeft: "16%", marginRight: "16%", marginTop: 16, padding: 8, opacity: 0.9 }}>
+                    <Button style={{ color: 'white', borderColor: 'silver' }} onClick={() => changingPW(true)}>Change Password</Button>
+                </div>
+                <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", marginLeft: "16%", marginRight: "16%", marginTop: 16, padding: 16, opacity: 0.9 }}>
                     <Button style={{ backgroundColor: "red", color: "white" }} onClick={() => signOut().then(() => {
                         removeCookie('uid')
                         window.location.href = "/"

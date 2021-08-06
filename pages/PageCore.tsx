@@ -20,7 +20,7 @@ export default function PageCore({ content, header = <Header title="Sign in" /> 
     Auth.onAuthStateChanged(user => {
         if (user) {
             setSignedIn(true)
-            updateLastOnlineTimestamp(user.uid)
+            updateLastOnlineTimestamp()
         } else {
             setSignedIn(false)
         }
